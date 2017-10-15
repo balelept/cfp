@@ -3,6 +3,7 @@
 <head>
   <?php
   include('php/login2.php'); // Includes Login Script
+  include('../includes/result.php');
   ?>
   <meta charset="UTF-8">
   <title>Calm breeze login screen</title>
@@ -15,15 +16,25 @@
 </head>
 
 <body>
+  <script type="text/javascript">
+
+ function erro(){
+ alert("<?php echo $error; ?> ");
+ }
+
+
+ </script>
+<font size="2px"><span style="color:#ff0000;text-align:center;" ><?php if( $error == "Utilizador ou palavra-chave incorretas."){ ?><script> erro() </script><?php }  ?> </span></font></td>
+
+
   <div class="wrapper">
 	<div class="container">
 		<h1>Bem vindo</h1>
-
-		<form class="form" method="post">
+    <form action="" method="post">
       <input id="name" name="username" placeholder="Utilizador" type="text" size=auto>
-			<input id="password" name="password" placeholder="Palavra-passe" size="auto" type="password">
-			<button type="submit" id="login-button" >Entrar</button>
-		</form>
+        <input id="password" name="password" placeholder="**********" size="auto" type="password">
+        <input name="submit" type="submit" value="Login" align="center" class="botao2">
+       </form>
 	</div>
 
 	<ul class="bg-bubbles">
@@ -47,8 +58,6 @@
 function erro(){
   alert("<?php echo $error; ?> ");
 }
-<span style="color:#ff0000;text-align:center;" ><?php if( $error == "Utilizador ou palavra-chave incorretas."){ ?><script> erro() </script><?php }  ?> </span>
-
 
 </script>
 </body>
