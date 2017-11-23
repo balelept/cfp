@@ -47,7 +47,7 @@ if(isset($_POST['btn-signup'])){
         if(mysqli_num_rows($dup)>0){
             echo '<b><span style="color:#ff0000;text-align:center;" >O nome de Utilizador que inseriu, já existe.</span></b>';
         }        else{
-                $url = 'index.php';
+                $url = '../login/';
                 echo '<META HTTP-EQUIV=Refresh CONTENT="5; URL='.$url.'">';
                 $sql = mysqli_query(con(),"INSERT INTO login(username,password) VALUES('$uname','$upass')");
 echo $uname,$_POST['pass'];
