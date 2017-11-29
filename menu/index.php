@@ -33,37 +33,54 @@
                 <ul class="list-unstyled components">
                     <p>Menu</p>
                     <li>
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Ação de formação</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <a href="#aFormacao" data-toggle="collapse" aria-expanded="false">Ação de formação</a>
+                        <ul class="collapse list-unstyled" id="aFormacao">
                             <li><a href="#">Lista de ações</a></li>
                             <li><a href="#">Inserir ação</a></li>
                             <li><a href="#">Atribuir notas</a></li>
                             <li><a href="#">Alterar notas</a></li>
                             <li><a href="#">Criar turma</a></li>
-                            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">Pages</a>
-                            <ul class="collapse list-unstyled" id="pageSubmenu2">
-                                <li><a href="#">Page 1</a></li>
-                                <li><a href="#">Page 2</a></li>
-                                <li><a href="#">Page 3</a></li>
+                            <a href="#update1" data-toggle="collapse" aria-expanded="false">Actualizar Dados</a>
+                            <ul class="collapse list-unstyled" id="update1">
+                                <li><a href="#">Grupos de Recrutamento</a></li>
+                                <li><a href="#">Modalidades</a></li>
+                                <li><a href="#">Área de Formação</a></li>
                             </ul>
                         </ul>
                     </li>
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                        <a href="#formandos" data-toggle="collapse" aria-expanded="false">Formandos</a>
+                        <ul class="collapse list-unstyled" id="formandos">
+                            <li><a href="#">Lista de formandos</a></li>
+                            <li><a href="#">Criar Turma</a></li>
+                            <li><a href="#">Inserir Formando</a></li>
+                            <a href="#update2" data-toggle="collapse" aria-expanded="false">Actualizar Dados</a>
+                            <ul class="collapse list-unstyled" id="update2">
+                                <li><a href="#">Habilitação Académica</a></li>
+                                <li><a href="#">Escalão</a></li>
+                                <li><a href="#">Agrupamentos</a></li>
+                                <li><a href="#">Centros de Formação</a></li>
+                                <li><a href="#">Escolas</a></li>
+                            </ul>
                         </ul>
                     </li>
                     <li>
-                    <a href="#">About</a>
+                        <a href="#formadores" data-toggle="collapse" aria-expanded="false">Formadores</a>
+                        <ul class="collapse list-unstyled" id="formadores">
+                            <li><a href="#">Lista de formadores</a></li>
+                            <li><a href="#">Inserir Formador</a></li>
+                            <a href="#update3" data-toggle="collapse" aria-expanded="false">Actualizar Dados</a>
+                            <ul class="collapse list-unstyled" id="update3">
+                                <li><a href="#">Habilitação Académica</a></li>
+                                <li><a href="#">Escalão</a></li>
+                                <li><a href="#">Agrupamentos</a></li>
+                                <li><a href="#">Centros de Formação</a></li>
+                                <li><a href="#">Escolas</a></li>
+                            </ul>
+                        </ul>
                     </li>
                     <li>
-                        <a href="#">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Informações</a>
                     </li>
                 </ul>
 
