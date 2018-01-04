@@ -8,6 +8,7 @@
 
 
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="style_menu.css">
 
 
 </head>
@@ -18,7 +19,9 @@
   <head>
 
   </head>
-  <body><nav class="main-menu">
+  <body>
+    <div class="left">
+      <nav class="main-menu">
             <ul>
                 <li>
                     <a href="http://justinfarrow.com">
@@ -100,7 +103,7 @@
 
             <ul class="logout">
                 <li>
-                   <a href="#">
+                   <a href="../includes/logout.php">
                          <i class="fa fa-power-off fa-2x"></i>
                         <span class="nav-text">
                             Logout
@@ -109,13 +112,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="mani">
-awdddddddddddddd<br>
-wdaaaaaaaaaaaaaaaa<br>
-awdddddddddddddddd<br>
-qweaddddddddddddd<br>
-asdddddddddddddd<br>
-        </div>
+      </div>
   </body>
     </html>
 
