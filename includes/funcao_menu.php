@@ -24,37 +24,37 @@
       <nav class="main-menu">
             <ul>
                 <li>
-                    <a href="http://justinfarrow.com">
+                    <a href="../menu/index.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
-                            Dashboard
+                            Inicio
+                        </span>
+                    </a>
+
+                </li>
+                <li class="has-subnav">
+                    <a href="../formulario/acao.php">
+                        <i class="fa fa-book fa-2x"></i>
+                        <span class="nav-text">
+                            Acoes de formacao
                         </span>
                     </a>
 
                 </li>
                 <li class="has-subnav">
                     <a href="#">
-                        <i class="fa fa-laptop fa-2x"></i>
+                       <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
-                            UI Components
+                            Formandos
                         </span>
                     </a>
 
                 </li>
                 <li class="has-subnav">
                     <a href="#">
-                       <i class="fa fa-list fa-2x"></i>
+                       <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
-                            Forms
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-folder-open fa-2x"></i>
-                        <span class="nav-text">
-                            Pages
+                            Formadores
                         </span>
                     </a>
 

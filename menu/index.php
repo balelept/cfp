@@ -3,13 +3,16 @@
       include('../includes/funcao_menu.php');
 
       ?>
-
+      <html>
+      <head>
       <div class="cabec">
         <table  width="100%" border="0">
 <tr>
 <th text-align="center"> <font size="5">CFP</font> </th>
 </tr>
 </table>  </div>
+</head>
+<body>
       <div class="corpo">
         <table  width="100%" border="0">
 <tr>
@@ -17,3 +20,5 @@
 </tr>
 </table>
       </div>
+    </body>
+    </html>
