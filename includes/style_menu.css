@@ -1,4 +1,4 @@
-.corpo{
+.corpo {
       position: fixed;
     left: 3.5%;
     top: 7%;
@@ -16,7 +16,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 
 }
-.cabec{
+.cabec {
       position: fixed;
       top: -0.1%;
     left: 3.5%;
@@ -29,7 +29,7 @@ background: linear-gradient(to bottom, #1d9329 0%,#22b727 42%,#1fc427 61%,#c4c4c
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d9329', endColorstr='#c4c4c4',GradientType=0 ); /* IE6-9 */
 
 }
-.left{
+.left {
     position:fixed;
     top: -0.1%;
     left:0%;

@@ -1,12 +1,11 @@
 <?php
 include('../includes/funcao_menu.php');
-include('../includes/style_menu.css');
 
 ?>
 <html>
 <head>
 <div class="cabec">
-  <table  width="100%" height="100%" border="0">
+  <table  width="100%" heigh="100%" border="0">
 <tr>
 <th text-align="center"> <font size="5">Base de Dados</font> </th>
 </tr>
@@ -56,7 +55,7 @@ td{
 }
 </style>
 <div class="corpo">
-  <table border="0">
+  <table border="1">
     <tr>
 <td>
 <div class="wrapper">
