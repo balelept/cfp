@@ -10,8 +10,9 @@
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="style_menu.css">
 
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="left">
       <nav class="main-menu">
             <ul>
@@ -28,7 +29,7 @@
                     <a href="../formulario/acao.php">
                         <i class="fa fa-book fa-2x"></i>
                         <span class="nav-text">
-                            Acoes de formacao
+                            Ações de formacao
                         </span>
                     </a>
 
@@ -106,4 +107,4 @@
         </nav>
       </div>
   </body>
-    </html>
+</html>

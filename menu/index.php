@@ -10,13 +10,14 @@
 <tr>
 <th text-align="center"> <font size="5">CFP</font> </th>
 </tr>
-</table>  </div>
+</table>
+</div>
 </head>
 <body>
       <div class="corpo">
         <table  width="100%" border="0">
 <tr>
-<th text-align="center"> <font size="3">Bem vimdo ao cfp</font> </th>
+<th text-align="center"> <font size="3">Bem vindo ao cfp</font> </th>
 </tr>
 </table>
       </div>
