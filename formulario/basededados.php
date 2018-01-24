@@ -55,11 +55,13 @@ td{
 }
 </style>
 <div class="corpo">
-  <table border="1">
+  <table border="0">
     <tr>
 <td>
 <div class="wrapper">
-  <button class="button" allign="center">Centros de formaçao</button>
+  <form method="get" action="centros.php">
+    <button class="button" allign="center">Centros de formaçao</button>
+</form>
 </div>
 </td>
 <td>

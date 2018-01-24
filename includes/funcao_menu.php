@@ -10,14 +10,6 @@
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="style_menu.css">
 
-
-</head>
-
-<body>
-
-  <html>
-  <head>
-
   </head>
   <body>
     <div class="left">
@@ -63,7 +55,7 @@
                     <a href="#">
                         <i class="fa fa-bar-chart-o fa-2x"></i>
                         <span class="nav-text">
-                            Graphs and Statistics
+                            Gradwaaaaaaaaaaa
                         </span>
                     </a>
                 </li>
@@ -115,9 +107,3 @@
       </div>
   </body>
     </html>
-
-
-
-</body>
-
-</html>
