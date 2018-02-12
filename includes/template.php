@@ -1,5 +1,5 @@
 <?php
-include('../includes/funcao_menu.php');
+include('funcao_menu.php');
 
 ?>
 <html>

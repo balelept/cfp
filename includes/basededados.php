@@ -1,5 +1,5 @@
 <?php
-include('../includes/funcao_menu.php');
+include('funcao_menu.php');
 
 ?>
 <html>
@@ -13,6 +13,7 @@ include('../includes/funcao_menu.php');
 </div>
  </head>
  <body>
+  <div class="corpo">
    <style media="screen" type="text/css">
 table {
   width: 100%;
@@ -82,4 +83,5 @@ td{
     </tr>
 </div>
 </body>
+</div>
 </html>

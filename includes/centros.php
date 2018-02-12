@@ -1,5 +1,5 @@
 <?php
-include('../includes/funcao_menu.php');
+include('funcao_menu.php');
 
 ?>
 <html>
@@ -89,103 +89,11 @@ include('../includes/funcao_menu.php');
     <td>awd</td>
     <td>awd</td>
   </tr>
+  </table>
+  <table>
   <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
+  <td><a href="centros_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
   </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-
   </table>
 </div>
 </body>

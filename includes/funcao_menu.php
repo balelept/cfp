@@ -1,4 +1,5 @@
 
+<?php include_once 'connect.php'; ?>
 <html lang="en" >
 
 <head>
@@ -77,7 +78,7 @@
                     </a>
                 </li>
                 <li>
-                   <a href="../formulario/basededados.php">
+                   <a href="basededados.php">
                         <i class="fa fa-archive fa-2x"></i>
                         <span class="nav-text">
                             Base de Dados
