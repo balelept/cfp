@@ -1,6 +1,6 @@
 <?php
 include('funcao_menu.php');
-
+$registo_cfp=mysqli_query(con(),"SELECT * FROM cfp ORDER BY id_cfp");
 ?>
 <html>
 <head>
@@ -11,7 +11,7 @@ include('funcao_menu.php');
       padding: 8px;
   }
   </style>
-   <table  width="100%" border="0">
+   <table alling="right"  width="100%" border="0">
    <tr>
    <th text-align="center"> <font size="5">Centros de formacão de professoress</font> </th>
    </tr>
@@ -23,7 +23,7 @@ include('funcao_menu.php');
   <style>
   table {
       border-collapse: collapse;
-      width: 100%;
+      width: 97%;
       font-family: "verdana"
   }
   tr:nth-child(even){background-color: #D1F9B3}
@@ -32,8 +32,9 @@ include('funcao_menu.php');
       font-size:small;
   }
   </style>
-  <table width="100%">
+  <table align="right" width="100%">
   <tr>
+    <th><b>Id &nbsp</b></th>
     <th><b>Nome &nbsp</b></th>
     <th><b>Morada &nbsp</b></th>
     <th><b>Contacto &nbsp</b></th>
@@ -41,54 +42,45 @@ include('funcao_menu.php');
     <th><b>Editar &nbsp</b></th>
     <th><b>Eliminar &nbsp</b></th>
   </tr>
+  <?php for($i=0;$i<mysqli_num_rows($registo_cfp);$i++){
+  ?>
   <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
+  <td>
+  <?php
+  $id =mysqli_result($registo_cfp,$i,'id_cfp');
+  echo $id;
+  ?>
+  </td>
+  <td>
+  <?php
+  $nome=mysqli_result($registo_cfp,$i,'nome');
+  echo $nome;
+  ?>
+  </td>
+  <td>
+  <?php
+  $morada=mysqli_result($registo_cfp,$i,'morada');
+  echo $morada;
+  ?>
+  </td>
+  <td>
+  <?php
+  $contacto=mysqli_result($registo_cfp,$i,'contacto');
+  echo $contacto;
+  ?>
+  </td>
+  <td>
+  <?php
+  $email=mysqli_result($registo_cfp,$i,'email');
+  echo $email;
+  ?>
+  </td>
+  <td><a href="cfp_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
+  <td><a href="cfp_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
   </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
-  <tr>
-    <td>awd</td>
-    <td>awd</td>
-    <td>wda</td>
-    <td>wda</td>
-    <td>awd</td>
-    <td>awd</td>
-  </tr>
+  <?php
+  }
+  ?>
   </table>
   <table>
   <tr>

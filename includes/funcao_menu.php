@@ -1,5 +1,8 @@
 
-<?php include_once 'connect.php'; ?>
+<?php
+include_once 'connect.php';
+include_once 'result.php'; 
+?>
 <html lang="en" >
 
 <head>
