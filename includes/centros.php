@@ -1,5 +1,5 @@
 <?php
-include('funcao_menu.php');
+include ('funcao_menu.php');
 $registo_cfp=mysqli_query(con(),"SELECT * FROM cfp ORDER BY id_cfp");
 ?>
 <html>
@@ -75,8 +75,8 @@ $registo_cfp=mysqli_query(con(),"SELECT * FROM cfp ORDER BY id_cfp");
   echo $email;
   ?>
   </td>
-  <td><a href="cfp_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
-  <td><a href="cfp_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
+  <td><a href="centros_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
+  <td><a href="centros_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
   </tr>
   <?php
   }
