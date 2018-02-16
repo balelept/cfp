@@ -1,7 +1,7 @@
 
 <?php
 include_once 'connect.php';
-include_once 'result.php'; 
+include_once 'result.php';
 ?>
 <html lang="en" >
 
@@ -21,7 +21,7 @@ include_once 'result.php';
       <nav class="main-menu">
             <ul>
                 <li>
-                    <a href="../menu/index.php">
+                    <a href="index.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Inicio

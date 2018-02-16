@@ -67,12 +67,16 @@ td{
 </td>
 <td>
 <div class="wrapper">
-  <button class="button" allign="center">Escolas</button>
+  <form method="get" action="agrupamentos.php">
+  <button class="button" allign="center">Agrupamentos</button>
+  </form>
 </div>
 </td>
 <td>
 <div class="wrapper">
-  <button class="button" allign="center">Agrupamentos</button>
+  <form method="get" action="escolas.php">
+  <button class="button" allign="center">Escolas</button>
+  </form>
 </div>
 </td>
 <td>
