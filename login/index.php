@@ -5,7 +5,7 @@
   include('php/login2.php'); // Includes Login Script
   include('../includes/result.php');
   if(isset($_SESSION['login_user'])){
-  header("Refresh:0; url=../menu/index.php");
+  header("Refresh:0; url=../includes/index.php");
 }
   ?>
   <meta charset="UTF-8">

@@ -26,7 +26,7 @@ $rows = 1;
 }
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
-header("location: ../menu/index.php"); // Redirecting To Other Page
+header("location: ../includes/index.php"); // Redirecting To Other Page
 } else {
 $error = "Utilizador ou palavra-chave incorretas.";
 }
