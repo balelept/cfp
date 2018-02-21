@@ -81,14 +81,22 @@ td{
 </td>
 <td>
 <div class="wrapper">
-  <form method="get" action="modalidade.php">
-  <button class="button" allign="center">Modalidade</button>
+  <form method="get" action="escalao.php">
+  <button class="button" allign="center">Escalões</button>
   </form>
 </div>
 </td>
+</tr>
+<tr>
 <td>
 <div class="wrapper">
   <button class="button" allign="center">Button</button>
+</div>
+</td>
+<td>
+<form method="get" action="modalidade.php">
+<button class="button" allign="center">Modalidade</button>
+</form>
 </div>
 </td>
     </tr>
