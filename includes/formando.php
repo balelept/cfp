@@ -60,8 +60,15 @@ td{
     <tr>
 <td>
 <div class="wrapper">
+  <form method="get" action="formando_insert.php">
+    <button class="button" allign="center">Inserir um novo formando</button>
+</form>
+</div>
+</td>
+<td>
+<div class="wrapper">
   <form method="get" action="centros.php">
-    <button class="button" allign="center">Centros de formaçao</button>
+    <button class="button" allign="center">Inserir um novo formando</button>
 </form>
 </div>
 </td>

@@ -81,6 +81,13 @@ td{
 </td>
 <td>
 <div class="wrapper">
+  <form method="get" action="modalidade.php">
+  <button class="button" allign="center">Modalidade</button>
+  </form>
+</div>
+</td>
+<td>
+<div class="wrapper">
   <button class="button" allign="center">Button</button>
 </div>
 </td>
