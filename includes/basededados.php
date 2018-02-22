@@ -99,6 +99,12 @@ td{
 </form>
 </div>
 </td>
+<td>
+<form method="get" action="grupos.php">
+<button class="button" allign="center">Grupos</button>
+</form>
+</div>
+</td>
     </tr>
 </div>
 </body>
