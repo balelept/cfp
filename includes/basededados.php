@@ -94,20 +94,30 @@ td{
 </div>
 </td>
 <td>
+  <div class="wrapper">
 <form method="get" action="modalidade.php">
 <button class="button" allign="center">Modalidade</button>
 </form>
 </div>
 </td>
 <td>
+  <div class="wrapper">
 <form method="get" action="grupos.php">
 <button class="button" allign="center">Grupos</button>
 </form>
 </div>
 </td>
 <td>
+  <div class="wrapper">
 <form method="get" action="habilitacao.php">
 <button class="button" allign="center">Habilitações</button>
+</form>
+</div>
+</td>
+<td>
+  <div class="wrapper">
+<form method="get" action="area_formacao.php">
+<button class="button" allign="center">area</button>
 </form>
 </div>
 </td>
