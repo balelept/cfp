@@ -105,6 +105,12 @@ td{
 </form>
 </div>
 </td>
+<td>
+<form method="get" action="habilitacao.php">
+<button class="button" allign="center">Habilitações</button>
+</form>
+</div>
+</td>
     </tr>
 </div>
 </body>
