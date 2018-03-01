@@ -34,7 +34,7 @@ while($row = mysqli_fetch_assoc($registo))
      <form method="post" action="agrupamentos_edit.php?e=2&id=<?php echo $id ?>">
      <tr>
      <td>ID do agrupamento: </td>
-     <td><?php $id = $row['id_cfp'];?>
+     <td><?php $id = $row['id_agrupamento'];?>
      <input type="text" name="id"  value="<?php echo $id?>" readonly="readonly">
      </td>
      </tr>
@@ -67,7 +67,7 @@ while($row = mysqli_fetch_assoc($registo))
     <?php
          for($m=0;$m<mysqli_num_rows($registo_cfp);$m++){
     ?>
-        <option value="<?php echo mysqli_result($registo_cfp, $m,'id_cfp'); ?><?php if($row['id_cfp'] ==  mysqli_result($registo_cfp, $m,'id_cfp')) {echo ("selected");} ?>"><?php echo mysqli_result($registo_cfp, $m,'nome');    ?></option>
+    <option value="<?php echo $row['id_cfp']?>" <?php if($row['id_cfp'] ==  mysqli_result($registo_cfp, $m,'id_cfp')) {echo ("selected");} ?> ><?php echo mysqli_result($registo_cfp, $m,'nome'); ?></option>
     <?php } ?> </td>
      </tr>
        <tr>

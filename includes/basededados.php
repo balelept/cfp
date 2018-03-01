@@ -114,14 +114,23 @@ td{
 </form>
 </div>
 </td>
-<td>
-  <div class="wrapper">
-<form method="get" action="area_formacao.php">
-<button class="button" allign="center">area</button>
-</form>
-</div>
-</td>
     </tr>
+    <tr>
+    <td>
+      <div class="wrapper">
+    <form method="get" action="area_formacao.php">
+    <button class="button" allign="center">area</button>
+    </form>
+    </div>
+    </td>
+    <td>
+      <div class="wrapper">
+    <form method="get" action="escola.php">
+    <button class="button" allign="center">Escola</button>
+    </form>
+    </div>
+    </td>
+        </tr>
 </div>
 </body>
 </div>
