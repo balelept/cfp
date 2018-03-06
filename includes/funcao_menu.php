@@ -30,7 +30,7 @@ include_once 'result.php';
 
                 </li>
                 <li class="has-subnav">
-                    <a href="../formulario/acao.php">
+                    <a href="acao_formacao.php">
                         <i class="fa fa-book fa-2x"></i>
                         <span class="nav-text">
                             Ações de formacao
