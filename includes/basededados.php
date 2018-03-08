@@ -74,7 +74,7 @@ td{
 </td>
 <td>
 <div class="wrapper">
-  <form method="get" action="escolas.php">
+  <form method="get" action="escola.php">
   <button class="button" allign="center">Escolas</button>
   </form>
 </div>

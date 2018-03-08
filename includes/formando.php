@@ -66,12 +66,7 @@ td{
 </div>
 </td>
 <td>
-<div class="wrapper">
-  <form method="get" action="centros.php">
-    <button class="button" allign="center">Inserir um novo formando</button>
-</form>
-</div>
-</td>
+<td><a href="formando_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
     </tr>
 </div>
 </body>
