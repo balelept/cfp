@@ -131,7 +131,7 @@ $registo_esca=mysqli_query(con(),"SELECT * FROM escalao ORDER BY id_escalao;");
   $nif         =$_POST['nif'];
   $horas         =$_POST['horas'];
   $genero         =$_POST['genero'];
-  $insert = "INSERT INTO formando (id_formando,nome,id_escola,telemovel,id_habilitacao,id_escalao,morada,cod_postal,anos_servico,email,cc,contribuinte,horas,genero) VALUES ( '$id','$nome','$id_esco','$contacto','$id_habi','$id_esca','$morada','$cod_postal','$anos_servico','$email','$cc','$nif','$horas','$genero')";
+  $insert = "INSERT INTO formando (id_formando,nome,id_escola,telemovel,id_habilitacao,id_escalao,morada,cod_postal,anos_servico,e_mail,cc,contribuinte,horas,genero) VALUES ( '$id','$nome','$id_esco','$contacto','$id_habi','$id_esca','$morada','$cod_postal','$anos_servico','$email','$cc','$nif','$horas','$genero')";
   $result = mysqli_query(con(), $insert);
   ?>
  <table border="1" align="center">

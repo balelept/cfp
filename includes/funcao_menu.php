@@ -48,7 +48,7 @@ include_once 'result.php';
 
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a href="formador.php?i=1">
                        <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
                             Formadores

@@ -64,7 +64,11 @@ $(function() {
  </tr>
  <tr>
    <td>Nome:</td>
-   <td colspan="5"><input type="text" name="nome_" value="" size="100%"></td>
+   <td colspan="5"><input type="text" name="nome" value="" size="100%"></td>
+ </tr>
+ <tr>
+   <td>SubNome:</td>
+   <td colspan="5"><input type="text" name="subnome" value="" size="100%"></td>
  </tr>
  <tr>
    <td>Releva:</td>
@@ -145,6 +149,13 @@ $(function() {
  <tr>
    <td align="char" >Data da proposta</td>
    <td ><input type="text" id="datepicker1" name="data_prop"></td>
+   <td colspan="2" > </td>
+ </tr>
+ <tr>
+   <td>Data de acreditação</td>
+   <td colspan="1"><input type="text" id="datepicker2" name="data_acreditacao"></td>
+   <td align="char" >Data de validade</td>
+   <td ><input type="text" id="datepicker3" name="data_validade"></td>
    <td colspan="2" > </td>
  </tr>
 </table>

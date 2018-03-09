@@ -71,7 +71,7 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY id_acao_f
      </table>
      <table>
      <tr>
-     <td><a href="acao_formcao_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
+     <td><a href="acao_formacao_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
      </tr>
      </table>
      <div class="down">
