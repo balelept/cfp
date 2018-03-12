@@ -1,74 +1,76 @@
 <?php
-include('funcao_menu.php');
-
+include ('funcao_menu.php');
+$registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formando");
 ?>
 <html>
 <head>
 <div class="cabec">
-  <table  width="100%" heigh="100%" border="0">
-<tr>
-<th text-align="center"> <font size="5">Formandos</font> </th>
-</tr>
-</table>
+  <style>
+  th, td {
+      text-align: center;
+      padding: 8px;
+  }
+  </style>
+   <table alling="right"  width="100%" border="0">
+   <tr>
+   <th text-align="center"> <font size="5">Formandos</font> </th>
+   </tr>
+   </table>
 </div>
  </head>
  <body>
-  <div class="corpo">
-   <style media="screen" type="text/css">
-table {
-  width: 100%;
-  height: 15%;
-}
-td{
-  width: 25%;
-}
-</style>
-<style>
-.button {
-  background: #33e010;
-  background-image: -webkit-linear-gradient(top, #33e010, #cdcfcd);
-  background-image: -moz-linear-gradient(top, #33e010, #cdcfcd);
-  background-image: -ms-linear-gradient(top, #33e010, #cdcfcd);
-  background-image: -o-linear-gradient(top, #33e010, #cdcfcd);
-  background-image: linear-gradient(to bottom, #33e010, #cdcfcd);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Arial;
-  color: #000000;
-  font-size: 24px;
-  padding: 12px 22px 12px 22px;
-  border: solid #000000 2px;
-  text-decoration: none;
-}
-
-.button:hover {
-  background: #ffffff;
-  background-image: -webkit-linear-gradient(top, #ffffff, #cdcfcd);
-  background-image: -moz-linear-gradient(top, #ffffff, #cdcfcd);
-  background-image: -ms-linear-gradient(top, #ffffff, #cdcfcd);
-  background-image: -o-linear-gradient(top, #ffffff, #cdcfcd);
-  background-image: linear-gradient(to bottom, #ffffff, #cdcfcd);
-  text-decoration: none;
-}
-.wrapper {
-    text-align: center;
-}
-</style>
 <div class="corpo">
-  <table border="0">
-    <tr>
-<td>
-<div class="wrapper">
-  <form method="get" action="formando_insert.php">
-    <button class="button" allign="center">Inserir um novo formando</button>
-</form>
-</div>
-</td>
-<td>
-<td><a href="formando_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
-    </tr>
+  <style>
+  table {
+      border-collapse: collapse;
+      width: 97%;
+      font-family: "verdana"
+  }
+  tr:nth-child(even){background-color: #D1F9B3}
+
+  tr{
+      font-size:small;
+  }
+  </style>
+  <table align="right" width="100%">
+  <tr>
+    <th><b>Id &nbsp</b></th>
+    <th><b>Nome &nbsp</b></th>
+    <th><b>Cartão do Cidadão &nbsp</b></th>
+  </tr>
+  <?php for($i=0;$i<mysqli_num_rows($registo_formando);$i++){
+  ?>
+  <tr>
+  <td>
+  <?php
+  $id =mysqli_result($registo_formando,$i,'id_formando');
+  echo $id;
+  ?>
+  </td>
+  <td>
+  <?php
+  $nome=mysqli_result($registo_formando,$i,'nome');
+  ?>
+  <a href="formando_perfil.php?id=<?php echo $id ?>"><?php echo $nome ?></a>
+  </td>
+  <td>
+  <?php
+  $cc=mysqli_result($registo_formando,$i,'cc');
+  echo $cc;
+  ?>
+  </td>
+  <td><a href="formando_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
+  <td><a href="formando_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
+  </tr>
+  <?php
+  }
+  ?>
+  </table>
+  <table>
+  <tr>
+  <td><a href="formando_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
+  </tr>
+  </table>
 </div>
 </body>
-</div>
 </html>
