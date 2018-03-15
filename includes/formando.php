@@ -59,6 +59,7 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
   echo $cc;
   ?>
   </td>
+ <td><a href="formador_insert.php?i=1&id=<?php echo $id ?>"><img src="formador.ico" width="16px" height="16px"> </td>
   <td><a href="formando_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
   <td><a href="formando_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
   </tr>
