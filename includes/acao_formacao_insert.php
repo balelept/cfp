@@ -72,6 +72,10 @@ if ($fase==1){ ?>
    <td colspan="5"><input type="text" name="subnome" value="" size="100%"></td>
  </tr>
  <tr>
+   <td>Registo acreditação:</td>
+   <td colspan="5"><input type="text" name="reg" value="" size="100%"></td>
+ </tr>
+ <tr>
    <td>Releva:</td>
    <td>artigo 5 &nbsp;
    <select name="artigo5[]" multiple="multiple" title="Artigo 5" size="4"  >
@@ -159,12 +163,16 @@ if ($fase==1){ ?>
    <td ><input type="text" id="datepicker3" name="data_validade"></td>
    <td colspan="2" > </td>
  </tr>
- <input type=submit class="botao2" Value="Inserir">
+ <tr>
+   <td colspan="5">
+     <input type=submit class="botao2" Value="Inserir">
+   <td>
+ </tr>
 </table>
 <?php } else if ($fase==2){
 
   ?>
-  <form action="acao_formacao_insert.php?i=2" method="post" id="acao">
+  <form action="acao_formacao_insert.php?i=3" method="post" id="acao">
     <style>
     table {
         border-collapse: collapse;
@@ -192,6 +200,10 @@ if ($fase==1){ ?>
    <tr>
      <td>SubNome:</td>
      <td colspan="5"><input type="text" name="subnome" value="" size="100%"></td>
+   </tr>
+   <tr>
+     <td>Registo acreditação:</td>
+     <td colspan="5"><input type="text" name="reg" value="" size="100%"></td>
    </tr>
    <tr>
      <td>Releva:</td>
@@ -303,7 +315,29 @@ if ($fase==1){ ?>
  </td>
 </tr>
   </table>
-<?php } ?>
+<?php } else if ($fase==3){
+$id       ="";
+$codigo   =$_POST['codigo'];
+$nome   =$_POST['nome_'];
+$subnome   =$_POST['subnome_'];
+$reg  =$_POST['reg'];
+$area   =$_POST['area'];
+$modalidade   =$_POST['modalidade'];
+$horaspresen  =$_POST['presen'];
+$horasnpresen  =$_POST['npresen'];
+$avaliacao  =$_POST['avaliacao'];
+$observacao  =$_POST['observacao'];
+$data_prop  =$_POST['data_prop'];
+$data_validade  =$_POST['data_validade'];
+$data_acreditacao  =$_POST['data_acreditacao'];
+$data_prop = date('Y-m-d', strtotime($data_prop));
+$data_validade = date('Y-m-d', strtotime($data_validade));
+$data_acreditacao = date('Y-m-d', strtotime($data_acreditacao));
+$m=0;
+ $insert = "INSERT INTO acao_formacao (id_acao_formacao,id_area_formacao,id_modalidade,data_proposta,codigo,nome,reg_acreditcao,avaliacao,observacoes,creditos,data_validade,data_acreditacao,horas_pre,horas_nao_pre) VALUES ( '$id','$area','$modalidade','$data_prop','$codigo','$nome','$reg','$avaliacao','$observacao','$creditos','$data_validade','$data_acreditacao','$horaspresen','$horasnpresen')";
+ $result1 = mysql_query($insert, $ligacao) or die(mysql_error());
+}
+ ?>
 </div>
 </div>
  </body>
