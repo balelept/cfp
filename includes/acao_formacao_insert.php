@@ -295,7 +295,7 @@ if ($fase==1){ ?>
    </tr>
    <tr>
    <td>Formadores &nbsp;
-    <select name="artigo14[]" multiple="multiple" title="Artigo 14" size="4"  >
+    <select name="formador[]" multiple="multiple" title="Formadores" size="4"  >
    <?php
    $area=$_POST['area'];
    echo $area;
@@ -335,9 +335,41 @@ $data_validade = date('Y-m-d', strtotime($data_validade));
 $data_acreditacao = date('Y-m-d', strtotime($data_acreditacao));
 $m=0;
  $insert = "INSERT INTO acao_formacao (id_acao_formacao,id_area_formacao,id_modalidade,data_proposta,codigo,nome,reg_acreditcao,avaliacao,observacoes,creditos,data_validade,data_acreditacao,horas_pre,horas_nao_pre) VALUES ( '$id','$area','$modalidade','$data_prop','$codigo','$nome','$reg','$avaliacao','$observacao','$creditos','$data_validade','$data_acreditacao','$horaspresen','$horasnpresen')";
- $result1 = mysql_query($insert, $ligacao) or die(mysql_error());
+ $result1 = mysqli_query(con(),$insert);
+ $l=0;
+if(!empty($_POST['formador'])) {
+   foreach($_POST['formador'] as $formador) {
+          $insert = "INSERT INTO formador_acao_formacao (id_formador,id_acao_formacao) VALUES ('$formador','$id')";
+          $result4[$l] = mysqli_query(con() ,$insert);
+          $l++;
 }
- ?>
+}
+
+$k=0;
+if(!empty($_POST['artigo5'])) {
+  foreach($_POST['artigo5'] as $artigo5) {
+      $insert = "INSERT INTO revela (id_acao_formacao,id_artigo,id_grupos) VALUES ('$id','5','$artigo5')";
+      $result5[$k] = mysqli_query(con(), $insert);
+      $k++;
+  }
+}
+$j=0;
+if(!empty($_POST['artigo14'])) {
+  foreach($_POST['artigo14'] as $artigo14) {
+          $insert = "INSERT INTO revela (id_acao_formacao,id_artigo,id_grupos) VALUES ('$id','14','$artigo14')";
+          $result6[$j] = mysqli_query(con(),$insert);
+          $j++;
+  }
+}
+
+if($result1 == 1){
+  echo"Ação inserida com sucesso!";
+}
+?>
+<form action="acao.php.php" method="post">
+ <input type=submit class="botao2" Value="Ok">
+</form>
+<?php} ?>
 </div>
 </div>
  </body>
