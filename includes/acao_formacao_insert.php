@@ -145,7 +145,7 @@ if ($fase==1){ ?>
    <td align="char">Avaliação:</td>
    <td colspan="3"><textarea rows="1" cols="45" name="avaliacao" form="acao"></textarea></td>
    <td>Cr&eacute;ditos</td>
-   <td> <input type="text" name="nome"  readonly="readonly"></td>
+   <td> <input type="text" name="creditos" size="30%" ></td>
  </tr>
  <tr>
    <td>Observa&ccedil;&otilde;es</td>
@@ -171,6 +171,22 @@ if ($fase==1){ ?>
 </table>
 <?php } else if ($fase==2){
 
+  $id       ="";
+  $codigo   =$_POST['codigo'];
+  $nome   =$_POST['nome'];
+  $subnome   =$_POST['subnome'];
+  $reg  =$_POST['reg'];
+  $area   =$_POST['area'];
+  $creditos =$_POST['creditos'];
+  $modalidade   =$_POST['modalidade'];
+  $horaspresen  =$_POST['presen'];
+  $horasnpresen  =$_POST['npresen'];
+  $avaliacao  =$_POST['avaliacao'];
+  $observacao  =$_POST['observacao'];
+  $data_prop  =$_POST['data_prop'];
+  $data_validade  =$_POST['data_validade'];
+  $data_acreditacao  =$_POST['data_acreditacao'];
+
   ?>
   <form action="acao_formacao_insert.php?i=3" method="post" id="acao">
     <style>
@@ -191,19 +207,19 @@ if ($fase==1){ ?>
     </tr>
    <tr>
      <td>C&oacute;digo:</td>
-     <td colspan="5"><input type="text" name="codigo" value="" size="100%"></td>
+     <td colspan="5"><input type="readonly" name="codigo" value="<?php echo $codigo; ?>" size="100%"></td>
    </tr>
    <tr>
      <td>Nome:</td>
-     <td colspan="5"><input type="text" name="nome" value="" size="100%"></td>
+     <td colspan="5"><input type="readonly" name="nome" value="<?php echo $nome; ?>" size="100%"></td>
    </tr>
    <tr>
      <td>SubNome:</td>
-     <td colspan="5"><input type="text" name="subnome" value="" size="100%"></td>
+     <td colspan="5"><input type="readonly" name="subnome" value="<?php echo $subnome; ?>" size="100%"></td>
    </tr>
    <tr>
      <td>Registo acreditação:</td>
-     <td colspan="5"><input type="text" name="reg" value="" size="100%"></td>
+     <td colspan="5"><input type="readonly" name="reg" value="<?php echo $reg; ?>" size="100%"></td>
    </tr>
    <tr>
      <td>Releva:</td>
@@ -233,7 +249,6 @@ if ($fase==1){ ?>
      <td colspan="2">
      <select name="something" >
           <option value="destinatiros">Docente</option>
-          <option value="destinaratios">Não Docente</option>
      </select>
      </td>
 
@@ -265,32 +280,32 @@ if ($fase==1){ ?>
    </tr>
    <tr>
      <td>Dura&ccedil;&atilde;o (Horas)</td>
-     <td><input type="text" name="total"  size="1"></td>
+     <td><input type="text" name="total" value="<?php echo $codigo; ?>"  size="1"></td>
      <td align="right">Presencial:</td>
-     <td><input type="text" name="presen"  size="1"></td>
+     <td><input type="readonly" name="presen" value="<?php echo $horasnpresen; ?>" size="1"></td>
      <td>N&atilde;o presencial</td>
-     <td><input type="text" name="npresen"  size="1"></td>
+     <td><input type="readonly" name="npresen" value="<?php echo $horasnpresen; ?>"  size="1"></td>
    </tr>
    <tr>
      <td align="char">Avaliação:</td>
-     <td colspan="3"><textarea rows="1" cols="45" name="avaliacao" form="acao"></textarea></td>
+     <td colspan="3"><input type="readonly" name="avaliacao"  value="<?php echo $avaliacao; ?>"></td>
      <td>Cr&eacute;ditos</td>
-     <td> <input type="text" name="nome"  readonly="readonly"></td>
+     <td> <input type="readonly" name="creditos"  value="<?php echo $creditos; ?>" readonly="readonly"></td>
    </tr>
    <tr>
      <td>Observa&ccedil;&otilde;es</td>
-     <td colspan="5"><textarea rows="1" cols="45" name="observacao" form="acao"></textarea></td>
+     <td colspan="5"><input type="readonly" name="observacao" value="<?php echo $observacao; ?>"></td>
    </tr>
    <tr>
      <td align="char" >Data da proposta</td>
-     <td ><input type="text" id="datepicker1" name="data_prop"></td>
+     <td ><input type="readonly" name="data_prop" value="<?php echo $data_prop; ?>"></td>
      <td colspan="2" > </td>
    </tr>
    <tr>
      <td>Data de acreditação</td>
-     <td colspan="1"><input type="text" id="datepicker2" name="data_acreditacao"></td>
+     <td colspan="1"><input type="readonly" name="data_acreditacao" value="<?php echo $data_acreditacao; ?>"></td>
      <td align="char" >Data de validade</td>
-     <td ><input type="text" id="datepicker3" name="data_validade"></td>
+     <td ><input type="readonly" name="data_validade" value="<?php echo $data_validade; ?>"></td>
      <td colspan="2" > </td>
    </tr>
    <tr>
@@ -318,10 +333,11 @@ if ($fase==1){ ?>
 <?php } else if ($fase==3){
 $id       ="";
 $codigo   =$_POST['codigo'];
-$nome   =$_POST['nome_'];
-$subnome   =$_POST['subnome_'];
+$nome   =$_POST['nome'];
+$subnome   =$_POST['subnome'];
 $reg  =$_POST['reg'];
 $area   =$_POST['area'];
+$creditos =$_POST['creditos'];
 $modalidade   =$_POST['modalidade'];
 $horaspresen  =$_POST['presen'];
 $horasnpresen  =$_POST['npresen'];
@@ -334,17 +350,19 @@ $data_prop = date('Y-m-d', strtotime($data_prop));
 $data_validade = date('Y-m-d', strtotime($data_validade));
 $data_acreditacao = date('Y-m-d', strtotime($data_acreditacao));
 $m=0;
- $insert = "INSERT INTO acao_formacao (id_acao_formacao,id_area_formacao,id_modalidade,data_proposta,codigo,nome,reg_acreditcao,avaliacao,observacoes,creditos,data_validade,data_acreditacao,horas_pre,horas_nao_pre) VALUES ( '$id','$area','$modalidade','$data_prop','$codigo','$nome','$reg','$avaliacao','$observacao','$creditos','$data_validade','$data_acreditacao','$horaspresen','$horasnpresen')";
+ $insert = "INSERT INTO acao_formacao (id_acao_formacao,nome,id_area_formacao,id_modalidade,data_acreditacao,data_proposta,codigo,avaliacao,observacoes,creditos,data_validade,subnome,reg_acreditacao,horas_pre,horas_nao_pre) VALUES ( '$id','$nome','$area','$modalidade','$data_acreditacao','$data_prop','$codigo','$avaliacao','$observacao','$creditos','$data_validade','$subnome','$reg','$horaspresen','$horasnpresen ')";
  $result1 = mysqli_query(con(),$insert);
+ $result = mysqli_query(con(),"SELECT max(id_acao_formacao) FROM acao_formacao");
+ $id_acao = mysqli_result($result, 0, 'id_acao_formacao');
  $l=0;
-if(!empty($_POST['formador'])) {
+ if(!empty($_POST['formador'])) {
    foreach($_POST['formador'] as $formador) {
-          $insert = "INSERT INTO formador_acao_formacao (id_formador,id_acao_formacao) VALUES ('$formador','$id')";
-          $result4[$l] = mysqli_query(con() ,$insert);
+          $insert = "INSERT INTO formador_acao_formacao (id_formador,id_acao_formacao) VALUES ('$formador','$id_acao')";
+          $result4 = mysqli_query(con() ,$insert);
           $l++;
 }
 }
-
+/*
 $k=0;
 if(!empty($_POST['artigo5'])) {
   foreach($_POST['artigo5'] as $artigo5) {
@@ -360,16 +378,19 @@ if(!empty($_POST['artigo14'])) {
           $result6[$j] = mysqli_query(con(),$insert);
           $j++;
   }
-}
-
-if($result1 == 1){
-  echo"Ação inserida com sucesso!";
-}
+} */
 ?>
-<form action="acao.php.php" method="post">
+<tr>  <?php
+  if ($result4){
+?> <td> <?php  echo "Registo inserido com sucesso";  ?> </td> <?php
+} else { ?> <td> <?php echo "Registo não foi inserido_____".$id_acao;  ?> </td> <?php }
+?>
+</tr>
+</table>
+<form action="acao.php" method="post">
  <input type=submit class="botao2" Value="Ok">
 </form>
-<?php} ?>
+<?php } ?>
 </div>
 </div>
  </body>
