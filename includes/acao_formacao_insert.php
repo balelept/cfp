@@ -352,38 +352,50 @@ $data_acreditacao = date('Y-m-d', strtotime($data_acreditacao));
 $m=0;
  $insert = "INSERT INTO acao_formacao (id_acao_formacao,nome,id_area_formacao,id_modalidade,data_acreditacao,data_proposta,codigo,avaliacao,observacoes,creditos,data_validade,subnome,reg_acreditacao,horas_pre,horas_nao_pre) VALUES ( '$id','$nome','$area','$modalidade','$data_acreditacao','$data_prop','$codigo','$avaliacao','$observacao','$creditos','$data_validade','$subnome','$reg','$horaspresen','$horasnpresen ')";
  $result1 = mysqli_query(con(),$insert);
- $result = mysqli_query(con(),"SELECT max(id_acao_formacao) FROM acao_formacao");
- $id_acao = mysqli_result($result, 0, 'id_acao_formacao');
+ $result = mysqli_query(con(),"SELECT id_acao_formacao FROM acao_formacao");
+ $id_acao2=0;
+  for($n=0;$n<mysqli_num_rows($result);$n++) {
+    $id_acao = mysqli_result($result, $n, 'id_acao_formacao');
+    if($id_acao2<$id_acao){
+      $id_acao2=$id_acao;
+    }
+  }
+
  $l=0;
  if(!empty($_POST['formador'])) {
    foreach($_POST['formador'] as $formador) {
-          $insert = "INSERT INTO formador_acao_formacao (id_formador,id_acao_formacao) VALUES ('$formador','$id_acao')";
+          $insert = "INSERT INTO formador_acao_formacao (id_formador,id_acao_formacao) VALUES ('$formador','$id_acao2')";
           $result4 = mysqli_query(con() ,$insert);
           $l++;
 }
 }
-/*
 $k=0;
 if(!empty($_POST['artigo5'])) {
   foreach($_POST['artigo5'] as $artigo5) {
-      $insert = "INSERT INTO revela (id_acao_formacao,id_artigo,id_grupos) VALUES ('$id','5','$artigo5')";
-      $result5[$k] = mysqli_query(con(), $insert);
+      $insert = "INSERT INTO releva (id_acao_formacao,id_artigo,id_grupos) VALUES ('$id_acao2','5','$artigo5')";
+      $result5 = mysqli_query(con(), $insert);
       $k++;
   }
 }
 $j=0;
 if(!empty($_POST['artigo14'])) {
   foreach($_POST['artigo14'] as $artigo14) {
-          $insert = "INSERT INTO revela (id_acao_formacao,id_artigo,id_grupos) VALUES ('$id','14','$artigo14')";
-          $result6[$j] = mysqli_query(con(),$insert);
+          $insert = "INSERT INTO releva (id_acao_formacao,id_artigo,id_grupos) VALUES ('$id_acao2','14','$artigo14')";
+          $result6 = mysqli_query(con(),$insert);
           $j++;
   }
-} */
+}
 ?>
 <tr>  <?php
-  if ($result4){
+  if ($result5){
 ?> <td> <?php  echo "Registo inserido com sucesso";  ?> </td> <?php
-} else { ?> <td> <?php echo "Registo não foi inserido_____".$id_acao;  ?> </td> <?php }
+} else { ?> <td> <?php echo "Registo não foi inserido_____".$artigo5;  ?> </td> <?php }
+?>
+</tr>
+<tr>  <?php
+  if ($result6){
+?> <td> <?php  echo "Registo inserido com sucesso";  ?> </td> <?php
+} else { ?> <td> <?php echo "Registo não foi inserido_____".$artigo14;  ?> </td> <?php }
 ?>
 </tr>
 </table>
