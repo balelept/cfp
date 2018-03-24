@@ -46,7 +46,7 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY id_acao_f
      <tr>
      <td>
      <?php
-     $id =mysqli_result($registo_acao,$i,'id_cfp');
+     $id =mysqli_result($registo_acao,$i,'id_acao_formacao');
      echo $id;
      ?>
      </td>

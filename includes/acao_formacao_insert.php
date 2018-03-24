@@ -230,7 +230,15 @@ if ($fase==1){ ?>
      $codigo = mysqli_result($registos_grupos,$n,'codigo');
      $id = mysqli_result($registos_grupos,$n,'id_grupos');
      $nome = mysqli_result($registos_grupos,$n,'nome');   ?>
-          <option value="<?php echo $id ?>"><?php echo $codigo."|".$nome; ?></option>
+     <option value="<?php echo $id ?>"<?php
+       if(!empty($_POST['artigo5'])) {
+         foreach($_POST['artigo5'] as $artigo5) {
+           if($artigo5 == $id){
+            echo "selected";
+           }
+         }
+       }
+      ?>><?php echo $codigo."|".$nome; ?></option>
      <?php } ?>
      </select>
      </td>
@@ -241,7 +249,15 @@ if ($fase==1){ ?>
      $codigo = mysqli_result($registos_grupos,$n,'codigo');
      $id = mysqli_result($registos_grupos,$n,'id_grupos');
      $nome = mysqli_result($registos_grupos,$n,'nome');   ?>
-          <option value="<?php echo $id; ?>"><?php echo $codigo."|".$nome; ?></option>
+     <option value="<?php echo $id ?>"<?php
+       if(!empty($_POST['artigo14'])) {
+         foreach($_POST['artigo14'] as $artigo5) {
+           if($artigo5 == $id){
+            echo "selected";
+           }
+         }
+       }
+      ?>><?php echo $codigo."|".$nome; ?></option>
      <?php } ?>
      </select>
      </td>
