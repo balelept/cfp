@@ -103,35 +103,11 @@ $registos_grupos=mysqli_query(con(),"SELECT * FROM grupos ORDER BY id_grupos ;")
 <td align="left" colspan="2">
 <select name="genero" title="genero"  >
     <option>--Selecionar Genero--</option>
-    <option value="1">Masculino</option>
-    <option value="2">Feminino</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Feminino">Feminino</option>
 </select>
 </td>
 </tr>
-<tr>
-<td align="left">Grupos: </td>
-<td align="left" colspan="2">
-<select name="genero" title="genero"  >
-    <option>--Selecionar Genero--</option>
-    <option value="1">Masculino</option>
-    <option value="2">Feminino</option>
-</select>
-</td>
-</tr>
-
-<tr>
-<td align="left">Grupos</td>
-<td><select name="grupo[]" multiple="multiple" title="Grupos" size="4"  >
-  <?php
-  for($n=0;$n<mysqli_num_rows($registos_grupos);$n=$n+1) {
-  $codigo = mysqli_result($registos_grupos,$n,'codigo');
-  $id = mysqli_result($registos_grupos,$n,'id_grupos');
-  $nome = mysqli_result($registos_grupos,$n,'nome');   ?>
-       <option value="<?php echo $id ?>"><?php echo $codigo."|".$nome; ?></option>
-  <?php } ?>
-</select>
-</td>
-
  <tr><td colspan="2">
 <input type="submit" class="botao2" value="Inserir">
 </td></tr>

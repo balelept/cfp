@@ -69,7 +69,7 @@ while($row = mysqli_fetch_assoc($registo))
       $habi=mysqli_query(con(),"SELECT * FROM habilitacao WHERE id_habilitacao='$habi'");
       $habi=mysqli_result($habi,0,'nome');
       ?>
-      <input type="text" name="escola"  value="<?php echo $esco?>" readonly="readonly">
+      <input type="text" name="habilitacao"  value="<?php echo $habi?>" readonly="readonly">
       </td>
       </tr>
       <tr>
@@ -85,35 +85,54 @@ while($row = mysqli_fetch_assoc($registo))
          </td>
          </tr>
    <tr>
-     <td>Email da escola:</td>
-      <td><?php $email = $row['nome'];?>
-     <input type="text" name="email"  value="<?php echo $email?>" readonly="readonly">
-     </td>
-   </tr>
-   <tr>
-     <td>Morada da escola:</td>
-      <td><?php $morada = $row['nome'];?>
+     <td>Morada:</td>
+      <td><?php $morada = $row['morada'];?>
      <input type="text" name="morada"  value="<?php echo $morada?>" readonly="readonly">
      </td>
    </tr>
    <tr>
-     <td>Contacto da escola:</td>
-      <td><?php $contacto = $row['nome'];?>
-     <input type="text" name="contacto"  value="<?php echo $contacto?>" readonly="readonly">
+     <td>Codigo Postal:</td>
+      <td><?php $cod_postal = $row['cod_postal'];?>
+     <input type="text" name="cod_postal"  value="<?php echo $cod_postal?>" readonly="readonly">
+     </td>
+   </tr>
+   <tr>
+     <td>Anos de Serviço:</td>
+      <td><?php $anos_servico = $row['anos_servico'];?>
+     <input type="text" name="anos_servico"  value="<?php echo $anos_servico?>" readonly="readonly">
      </td>
    </tr>
 <tr>
-  <td>Agrupamento da escola:</td>
-   <td>
-   <?php
-   $registo_agru=mysqli_query(con(),"SELECT * FROM escola WHERE id_escola='$id'");
-   $agru=mysqli_result($registo_agru,0,'id_agrupamento');
-   $agru=mysqli_query(con(),"SELECT * FROM agrupamento WHERE id_agrupamento='$agru'");
-   $agru=mysqli_result($agru,0,'nome');
-   echo $agru;
-   ?>
-   </td>
-   </tr>
+  <tr>
+    <td>Email:</td>
+     <td><?php $e_mail = $row['e_mail'];?>
+    <input type="text" name="e_mail"  value="<?php echo $e_mail?>" readonly="readonly">
+    </td>
+  </tr>
+  <tr>
+    <td>Cartão do Cidadão:</td>
+     <td><?php $cc = $row['cc'];?>
+    <input type="text" name="cc"  value="<?php echo $cc?>" readonly="readonly">
+    </td>
+  </tr>
+  <tr>
+    <td>NIF:</td>
+     <td><?php $contribuinte = $row['contribuinte'];?>
+    <input type="text" name="contribuinte"  value="<?php echo $contribuinte?>" readonly="readonly">
+    </td>
+  </tr>
+  <tr>
+    <td>Horas:</td>
+     <td><?php $horas = $row['horas'];?>
+    <input type="text" name="horas"  value="<?php echo $horas?>" readonly="readonly">
+    </td>
+  </tr>
+  <tr>
+    <td>Genero:</td>
+     <td><?php $genero = $row['genero'];?>
+    <input type="text" name="genero"  value="<?php echo $genero?>" readonly="readonly">
+    </td>
+  </tr>
        <tr>
     <td colspan="2" align="center"><input type="submit" class="botao2" value="Apagar centro" name="btn-signup">  </td>
     </tr>
@@ -128,8 +147,8 @@ while($row = mysqli_fetch_assoc($registo))
   <table align="center">
      <tr><td>
      <?php
-     $a="escola.php";
-     $apagar = "DELETE FROM escola WHERE id_escola='$id'";
+     $a="formando.php";
+     $apagar = "DELETE FROM formando WHERE id_formando='$id'";
      $result = mysqli_query(con(),$apagar) or die(mysqli_error(con()));
           if($result){
 
