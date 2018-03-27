@@ -57,7 +57,7 @@ while($row = mysqli_fetch_assoc($registo))
      <tr>
      <td>Contacto:</td>
      <td><?php $contacto = $row['telemovel'];?>
-    <input type="text" name="telemovel"  value="<?php echo $contacto?>" >
+    <input type="text" name="contacto"  value="<?php echo $contacto?>" >
     </td>
      </tr>
      <tr>
@@ -96,8 +96,8 @@ while($row = mysqli_fetch_assoc($registo))
      </tr>
      <tr>
      <td>Email:</td>
-     <td><?php $e_mail = $row['e_mail'];?>
-    <input type="text" name="e_mail"  value="<?php echo $e_mail?>" >
+     <td><?php $email = $row['e_mail'];?>
+    <input type="text" name="email"  value="<?php echo $email?>" >
     </td>
      </tr>
      <tr>
@@ -108,8 +108,8 @@ while($row = mysqli_fetch_assoc($registo))
      </tr>
      <tr>
      <td>NIF:</td>
-     <td><?php $contribuinte = $row['contribuinte'];?>
-    <input type="text" name="contribuinte"  value="<?php echo $contribuinte?>" >
+     <td><?php $nif = $row['contribuinte'];?>
+    <input type="text" name="nif"  value="<?php echo $nif?>" >
     </td>
      </tr>
      <tr>
@@ -118,7 +118,16 @@ while($row = mysqli_fetch_assoc($registo))
     <input type="text" name="horas"  value="<?php echo $horas?>" >
     </td>
      </tr>
-
+     <tr>
+     <td align="left">Genero: </td>
+     <td align="left" colspan="2">
+     <select name="genero" title="genero"  >
+         <option>--Selecionar Genero--</option>
+         <option value="Masculino">Masculino</option>
+         <option value="Feminino">Feminino</option>
+     </select>
+     </td>
+     </tr>
        <tr>
     <td colspan="2" align="center"><input type="submit" class="botao2" value="Editar a escola" name="btn-signup">  </td>
     </tr>
@@ -131,19 +140,27 @@ while($row = mysqli_fetch_assoc($registo))
 </table>
 <?php } else {
 
-  $nome       =$_POST['nome'];
-  $email      =$_POST['email'];
-  $contacto    =$_POST['contacto'];
-  $morada     =$_POST['morada'];
-  $agru    =$_POST['agru'];
+  $nome          =$_POST['nome'];
+  $id_esco        =$_POST['esco'];
+  $contacto      =$_POST['contacto'];
+  $id_habi        =$_POST['habi'];
+  $id_esca        =$_POST['esca'];
+  $morada        =$_POST['morada'];
+  $cod_postal        =$_POST['cod_postal'];
+  $anos_servico        =$_POST['anos_servico'];
+  $email         =$_POST['email'];
+  $cc         =$_POST['cc'];
+  $nif         =$_POST['nif'];
+  $horas         =$_POST['horas'];
+  $genero         =$_POST['genero'];
 
           ?>
            <table align="center">
            <tr>
 
               <?php
-              $a="centros.php";
-                  $editar = "UPDATE escola SET nome='$nome',email='$email',contacto='$contacto',morada='$morada' ,id_agrupamento='$agru' WHERE id_esola='$id'";
+              $a="formando.php";
+                  $editar = "UPDATE formando SET nome='$nome',id_esco='$id_esco',id_habi='$id_habi',email='$email',contacto='$contacto',morada='$morada',cod_postal='$cod_postal',anos_servico='$anos_servico',cc='$cc',nif='$nif',horas='$horas',genero='$genero' WHERE id_formando='$id'";
               $result = mysqli_query(con(),$editar) or die(mysqli_error(con()));
                 if($result){
 
