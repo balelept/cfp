@@ -1,6 +1,6 @@
 <?php
 include('funcao_menu.php');
-$registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY id_acao_formacao");
+$registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY data_validade DESC");
 ?>
 <html>
 <head>
@@ -37,7 +37,8 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY id_acao_f
        <th><b>Id &nbsp</b></th>
        <th><b>Nome &nbsp</b></th>
        <th><b>Codigo &nbsp</b></th>
-       <th><b>Email &nbsp</b></th>
+       <th><b>Validade &nbsp</b></th>
+       <th><b>Edicao &nbsp</b></th>
        <th><b>Editar &nbsp</b></th>
        <th><b>Eliminar &nbsp</b></th>
      </tr>
@@ -62,6 +63,31 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY id_acao_f
      echo $cod;
      ?>
      </td>
+     <td>
+          <?php
+   $hoje= date("Y-m-d");
+   $validade=mysqli_result($registo_acao,$i,'data_validade');
+   if($hoje<= $validade){   ?>
+   <img src="certo_verde.png">
+   <?php } else { ?>
+   <img src="certo_gray.png"> <?php } ?>
+
+   </td>
+<td>
+   <div id="container">
+
+      <?php
+      $registos_edicao_formacao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE '$id'=id_acao_formacao ;");
+      if(!$registos_edicao_formacao){ $d=0; }else{
+      $d=mysqli_num_rows($registos_edicao_formacao);}
+     ?>
+  <img id="iamage" src="edicoes.png" >
+   <font color="black">  <?php echo $d;?> </font>
+   <?php  if($hoje<= $validade){   ?>
+   <a  href="edicao_insert.php?i=1&id_acao=<?php echo $id;?>">  <img src="insert.png" hspace="10" title> </a>
+  <?php } ?>
+ </div>
+</td>
      <td><a href="acao_formacao_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
      <td><a href="acao_formacao_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
      </tr>

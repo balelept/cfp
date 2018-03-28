@@ -108,6 +108,29 @@ $registos_grupos=mysqli_query(con(),"SELECT * FROM grupos ORDER BY id_grupos ;")
 </select>
 </td>
 </tr>
++<tr>
+<td align="left">Grupos: </td>
+<td align="left" colspan="2">
+ <select name="genero" title="genero"  >
+     <option>--Selecionar Genero--</option>
+     <option value="1">Masculino</option>
+     <option value="2">Feminino</option>
+ </select>
+ </td>
+ </tr>
+
+ <tr>
+ <td align="left">Grupos</td>
+ <td><select name="grupo[]" multiple="multiple" title="Grupos" size="4"  >
+   <?php
+   for($n=0;$n<mysqli_num_rows($registos_grupos);$n=$n+1) {
+   $codigo = mysqli_result($registos_grupos,$n,'codigo');
+   $id = mysqli_result($registos_grupos,$n,'id_grupos');
+   $nome = mysqli_result($registos_grupos,$n,'nome');   ?>
+        <option value="<?php echo $id ?>"><?php echo $codigo."|".$nome; ?></option>
+   <?php } ?>
+ </select>
+ </td>
  <tr><td colspan="2">
 <input type="submit" class="botao2" value="Inserir">
 </td></tr>
@@ -134,6 +157,24 @@ $registos_grupos=mysqli_query(con(),"SELECT * FROM grupos ORDER BY id_grupos ;")
   $insert = "INSERT INTO formando (id_formando,nome,id_escola,telemovel,id_habilitacao,id_escalao,morada,cod_postal,anos_servico,e_mail,cc,contribuinte,horas,genero) VALUES ( '$id','$nome','$id_esco','$contacto','$id_habi','$id_esca','$morada','$cod_postal','$anos_servico','$email','$cc','$nif','$horas','$genero')";
   $result = mysqli_query(con(), $insert);
 
+
+     $result1 = mysqli_query(con(),"SELECT * FROM formando");
+     $id_formando=0;
+      for($n=0;$n<mysqli_num_rows($result1);$n++) {
+        $id_formando2 = mysqli_result($result1, $n, 'id_formando');
+        if($id_formando<$id_formando2){
+          $id_formando=$id_formando2;
+        }
+      }
+
+     $k=0;
+     if(!empty($_POST['grupo'])) {
+       foreach($_POST['grupo'] as $grupo) {
+           $insert = "INSERT INTO formando_grupo (id_formando,id_grupo) VALUES ('$id_formando','$grupo')";
+           $result5 = mysqli_query(con(), $insert);
+           $k++;
+       }
+     }
   $result1 = mysqli_query(con(),"SELECT * FROM formando");
   $id_formando=0;
    for($n=0;$n<mysqli_num_rows($result1);$n++) {
