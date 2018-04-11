@@ -48,8 +48,7 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY data_vali
      <td>
      <?php
      $id =mysqli_result($registo_acao,$i,'id_acao_formacao');
-     echo $id;
-     ?>
+     ?> <a href="acao_formacao_perfil.php?id=<?php echo $id; ?>"><?php echo $id; ?> </a>
      </td>
      <td>
      <?php
