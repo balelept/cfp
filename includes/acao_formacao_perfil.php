@@ -6,13 +6,17 @@ $area = mysqli_result($registo_acao,0,'id_area_formacao');
 $modalidade = mysqli_result($registo_acao,0,'id_modalidade');
 $registo_area=mysqli_query(con(),"SELECT * FROM area_formacao WHERE id_area_formacao='$area'");
 $registo_mod=mysqli_query(con(),"SELECT * FROM modalidade WHERE id_modalidade='$modalidade'");
+$registo_formador=mysqli_query(con(),"SELECT * FROM formador_acao_formacao WHERE id_acao_formacao='$id_acao'");
+$registo_5=mysqli_query(con(),"SELECT * FROM releva WHERE id_acao_formacao='$id_acao' AND id_artigo='5'");
+$registo_14=mysqli_query(con(),"SELECT * FROM releva WHERE id_acao_formacao='$id_acao' AND id_artigo='14'");
+$registo_edicao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE id_acao_formacao='$id_acao'");
 ?>
 <html>
 <head>
   <div class="cabec">
     <style>
     th, td {
-        text-align: center;
+        text-align: left;
         padding: 8px;
     }
     tr:nth-child(even){background-color: #D4D4D4}
@@ -71,14 +75,31 @@ $registo_mod=mysqli_query(con(),"SELECT * FROM modalidade WHERE id_modalidade='$
 </tr>
 <tr>
 <td><b>Artigo 5</b></td>
-<td>artigo 5</td>
+<td><?php
+for($g=0;$g<mysqli_num_rows($registo_5);$g++) {
+  $id_grupo=mysqli_result($registo_5,$g,'id_grupos');
+  $registo_grupo5=mysqli_query(con(),"SELECT * FROM grupos WHERE id_grupos='$id_grupo' ORDER BY id_grupos ;");
+$codigo = mysqli_result($registo_grupo5,0,'codigo');
+$nome = mysqli_result($registo_grupo5,0,'nome');
+echo $codigo."|".$nome."<br>";  } ?></td>
 <td><b>Artigo 14</b></td>
-<td>artigo 14</td>
+<td align="right" ><?php
+for($n=0;$n<mysqli_num_rows($registo_14);$n++) {
+  $id_grupo=mysqli_result($registo_14,$n,'id_grupos');
+  $registo_grupo14=mysqli_query(con(),"SELECT * FROM grupos WHERE id_grupos='$id_grupo' ORDER BY id_grupos ;");
+$codigo = mysqli_result($registo_grupo14,0,'codigo');
+$nome = mysqli_result($registo_grupo14,0,'nome');
+echo $codigo."|".$nome."<br>";  } ?></td>
 </tr>
 <tr>
 <td><b>Formador</b></td>
 <td colspan="3">
-<?php for($x=0;$x<$) ?>
+<?php for($x=0;$x<mysqli_num_rows($registo_formador);$x++){
+     $id_formador=mysqli_result($registo_formador,$x,'id_formador');
+     $registo_formando=mysqli_query(con(),"SELECT * FROM formando WHERE id_formando='$id_formador'");
+    ?> <a href="formando_perfil.php"> <?php echo mysqli_result($registo_formando,'0','nome'); ?> </a> <?php echo "  |  ";
+}
+ ?>
 </td>
 </tr>
 <tr>
@@ -91,7 +112,18 @@ $registo_mod=mysqli_query(con(),"SELECT * FROM modalidade WHERE id_modalidade='$
 </tr>
 </table>
 </div>
-<div class="perfiright"> </div>
+<div class="perfiright">
+<table border="0" width="100%">
+  <?php for($h=0;$h<$registos_edicao;$h++){
+       $id_edicao=mysqli_result($registo_edicao,$h,'id_edicao');
+       $registo_turma=mysqli_query(con(),"SELECT * FROM turma WHERE id_edicao_formacao='$id_edicao'");
+       for($j=0;$j<$registos_turma;$j++){
+
+       }
+  } ?>
+
+</table>
+</div>
    </div>
 </body>
 </html>

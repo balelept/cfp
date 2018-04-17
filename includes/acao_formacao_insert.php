@@ -251,8 +251,8 @@ if ($fase==1){ ?>
      $nome = mysqli_result($registos_grupos,$n,'nome');   ?>
      <option value="<?php echo $id ?>"<?php
        if(!empty($_POST['artigo14'])) {
-         foreach($_POST['artigo14'] as $artigo5) {
-           if($artigo5 == $id){
+         foreach($_POST['artigo14'] as $artigo14) {
+           if($artigo14 == $id){
             echo "selected";
            }
          }
