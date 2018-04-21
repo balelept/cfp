@@ -114,11 +114,30 @@ echo $codigo."|".$nome."<br>";  } ?></td>
 </div>
 <div class="perfiright">
 <table border="0" width="100%">
-  <?php for($h=0;$h<$registos_edicao;$h++){
-       $id_edicao=mysqli_result($registo_edicao,$h,'id_edicao');
-       $registo_turma=mysqli_query(con(),"SELECT * FROM turma WHERE id_edicao_formacao='$id_edicao'");
-       for($j=0;$j<$registos_turma;$j++){
 
+  <?php for($h=0;$h<mysqli_num_rows($registo_edicao);$h++){
+       $id_edicao=mysqli_result($registo_edicao,$h,'id_edicao');
+       $registo_turma=mysqli_query(con(),"SELECT DISTINCT(id_turma) FROM turma WHERE id_edicao_formacao='$id_edicao'");
+       ?> <tr>
+           <th bgcolor="#b0ff91"><?php
+           $x=$h+1;
+           echo "Edição".$x;
+           ?></th>
+       </tr> <?php
+       for($j=0;$j<mysqli_num_rows($registo_turma);$j++){
+        ?>
+        <tr>
+          <td bgcolor="#f7f7f7" cellspacing="2" ><?php
+          $x=$j+1;
+          $id_turma=mysqli_result($registo_turma,$j,'id_turma');
+          echo "Turma".$x;
+          ?>
+        <a href="pdf_perfil_turma.php?id_turma=<?php echo $id_turma ;?>">  <img src="pauta.ico" height="26" width="26" align="right"> </a>
+        <a href="pdf_presencas.php?id_turma=<?php echo $id_turma ;?>">  <img src="pauta.ico" height="26" width="26" align="right"></a>
+          <img src="pauta.ico" height="26" width="26" align="right">
+        </td>
+        </tr>
+         <?php
        }
   } ?>
 
