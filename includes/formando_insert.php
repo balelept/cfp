@@ -108,17 +108,6 @@ $registos_grupos=mysqli_query(con(),"SELECT * FROM grupos ORDER BY id_grupos ;")
 </select>
 </td>
 </tr>
-+<tr>
-<td align="left">Grupos: </td>
-<td align="left" colspan="2">
- <select name="genero" title="genero"  >
-     <option>--Selecionar Genero--</option>
-     <option value="1">Masculino</option>
-     <option value="2">Feminino</option>
- </select>
- </td>
- </tr>
-
  <tr>
  <td align="left">Grupos</td>
  <td><select name="grupo[]" multiple="multiple" title="Grupos" size="4"  >
@@ -131,6 +120,7 @@ $registos_grupos=mysqli_query(con(),"SELECT * FROM grupos ORDER BY id_grupos ;")
    <?php } ?>
  </select>
  </td>
+</tr>
  <tr><td colspan="2">
 <input type="submit" class="botao2" value="Inserir">
 </td></tr>

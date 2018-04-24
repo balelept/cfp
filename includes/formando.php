@@ -34,11 +34,56 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
   </style>
   <table align="right" width="100%">
   <tr>
+    <th>
+      <form action="formando.php" method="post">
+        Pesquisar: <input type="text" name="term" />
+        <input type="submit" value="Submit" />
+      </form>
+    </th>
+  </tr>
+  <tr>
     <th><b>Id &nbsp</b></th>
     <th><b>Nome &nbsp</b></th>
     <th><b>Cartão do Cidadão &nbsp</b></th>
+    <th colspan="3"></th>
   </tr>
-  <?php for($i=0;$i<mysqli_num_rows($registo_formando);$i++){
+  <?php
+    if (!empty($_REQUEST['term'])) {
+
+    $term = ($_REQUEST['term']);
+
+    $pesquisa = mysqli_query(con(),"SELECT * FROM formando WHERE nome LIKE '%".$term."%'");
+
+     for($i=0;$i<mysqli_num_rows($pesquisa);$i++){
+    ?>
+    <tr>
+    <td>
+    <?php
+    $id =mysqli_result($pesquisa,$i,'id_formando');
+    echo $id;
+    ?>
+    </td>
+    <td>
+    <?php
+    $nome=mysqli_result($pesquisa,$i,'nome');
+    ?>
+    <a href="formando_perfil.php?id=<?php echo $id ?>"><?php echo $nome ?></a>
+    </td>
+    <td>
+    <?php
+    $cc=mysqli_result($pesquisa,$i,'cc');
+    echo $cc;
+    ?>
+    </td>
+    <td><a href="formador_insert.php?i=1&id=<?php echo $id ?>"><img src="formador.ico" width="16px" height="16px"> </td>
+     <td><a href="formando_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
+     <td><a href="formando_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
+     </tr>
+<?php
+    }
+  }
+  else {
+ for($i=0;$i<mysqli_num_rows($registo_formando);$i++){
   ?>
   <tr>
   <td>
@@ -64,7 +109,8 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
   <td><a href="formando_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
   </tr>
   <?php
-  }
+}
+}
   ?>
   </table>
   <table>
