@@ -163,9 +163,8 @@ echo $codigo."|".$nome."<br>";  } ?></td>
 
         <a href="pdf_perfil_turma.php?id_turma=<?php echo $id_turma ;?>">  <img src="pauta.ico" height="26" width="26" align="right"> </a>
         <a href="pdf_presencas.php?id_turma=<?php echo $id_turma ;?>">  <img src="pauta.ico" height="26" width="26" align="right"></a>
-          <img src="pauta.ico" height="26" width="26" align="right">
 <?php if ($data_fim < $hoje) { ?>
-            <a href="notas_insert.php?id_turma=<?php echo $id_turma ;?>">  <img src="notas.ico" height="26" width="26" align="right"> </a>
+            <a href="notas_insert.php?i=1&id_turma=<?php echo $id_turma ;?>">  <img src="notas.ico" height="26" width="26" align="right"> </a>
 <?php } ?>
 
         </td>
