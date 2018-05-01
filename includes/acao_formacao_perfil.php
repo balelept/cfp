@@ -59,7 +59,7 @@ $registo_edicao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE id_acao_
 <div class="perfileft">
 <table border="0" width="100%" id="customers">
 <tr>
-<th id="cu"><b>Nome:</b></th>
+<th><b>Nome:</b></th>
 <td colspan="3"><?php echo mysqli_result($registo_acao,0,'nome'); ?></td>
 </tr>
 <tr>

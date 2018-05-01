@@ -8,6 +8,8 @@ $query="SELECT * FROM formando WHERE id_formando='$id'";
 $registo_esco=mysqli_query(con(),"SELECT * FROM escola ORDER BY id_escola;");
 $registo_habi=mysqli_query(con(),"SELECT * FROM habilitacao ORDER BY id_habilitacao;");
 $registo_esca=mysqli_query(con(),"SELECT * FROM escalao ORDER BY id_escalao;");
+$registos_grupos=mysqli_query(con(),"SELECT * FROM grupos ORDER BY id_grupos ;");
+$for_grupo=mysqli_query(con(),"SELECT * FROM formando_grupo WHERE id_formando='$id'");
 $registo=mysqli_query(con(),$query);
 
 ?>
@@ -47,7 +49,7 @@ while($row = mysqli_fetch_assoc($registo))
      </td>
      </tr>
      <tr>
-     <td>escola:</td><td><select name="agru">
+     <td>escola:</td><td><select name="esco">
     <?php
          for($m=0;$m<mysqli_num_rows($registo_esco);$m++){
     ?>
@@ -73,7 +75,7 @@ while($row = mysqli_fetch_assoc($registo))
     <?php
          for($m=0;$m<mysqli_num_rows($registo_esca);$m++){
     ?>
-    <option value="<?php echo $row['id_escalao']?>" <?php if($row['id_escalao'] ==  mysqli_result($registo_escalao, $m,'id_escalao')) {echo ("selected");} ?> ><?php echo mysqli_result($registo_esca, $m,'indice'); ?></option>
+    <option value="<?php echo $row['id_escalao']?>" <?php if($row['id_escalao'] ==  mysqli_result($registo_esca, $m,'id_escalao')) {echo ("selected");} ?> ><?php echo mysqli_result($registo_esca, $m,'indice'); ?></option>
     <?php } ?> </td>
      </tr>
      <tr>
@@ -120,14 +122,33 @@ while($row = mysqli_fetch_assoc($registo))
      </tr>
      <tr>
      <td align="left">Genero: </td>
+     <?php $genero = $row['genero'];?>
      <td align="left" colspan="2">
      <select name="genero" title="genero"  >
          <option>--Selecionar Genero--</option>
-         <option value="Masculino">Masculino</option>
-         <option value="Feminino">Feminino</option>
+         <option value="Masculino" <?php if($genero=="Masculino") { echo "selected"; } ?>>Masculino</option>
+         <option value="Feminino" <?php if($genero=="Feminino") { echo "selected"; } ?>>Feminino</option>
      </select>
      </td>
      </tr>
+     <tr>
+     <td align="left">Grupos</td>
+     <td><select name="grupo[]" multiple="multiple" title="Grupos" size="4"  >
+       <?php
+       for($n=0;$n<mysqli_num_rows($registos_grupos);$n=$n+1) {
+       $codigo = mysqli_result($registos_grupos,$n,'codigo');
+       $id = mysqli_result($registos_grupos,$n,'id_grupos');
+       $nome = mysqli_result($registos_grupos,$n,'nome');   ?>
+            <option value="<?php echo $id ?>"
+              <?php for($i=0;$i<mysqli_num_rows($for_grupo);$i=$i+1){
+                $id1 = mysqli_result($for_grupo,$i,'id_grupo');
+                if($id==$id1){ echo "selected"; }
+              }
+                ?>><?php echo $codigo."|".$nome; ?></option>
+       <?php } ?>
+     </select>
+     </td>
+    </tr>
        <tr>
     <td colspan="2" align="center"><input type="submit" class="botao2" value="Editar a escola" name="btn-signup">  </td>
     </tr>
