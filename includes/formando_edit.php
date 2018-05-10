@@ -181,7 +181,7 @@ while($row = mysqli_fetch_assoc($registo))
 
               <?php
               $a="formando.php";
-                  $editar = "UPDATE formando SET nome='$nome',id_esco='$id_esco',id_habi='$id_habi',email='$email',contacto='$contacto',morada='$morada',cod_postal='$cod_postal',anos_servico='$anos_servico',cc='$cc',nif='$nif',horas='$horas',genero='$genero' WHERE id_formando='$id'";
+                  $editar = "UPDATE formando SET nome='$nome',id_escola='$id_esco',id_habilitacao='$id_habi',id_escalao='$id_esca',e_mail='$email',telemovel='$contacto',morada='$morada',cod_postal='$cod_postal',anos_servico='$anos_servico',cc='$cc',contribuinte='$nif',horas='$horas',genero='$genero' WHERE id_formando='$id'";
               $result = mysqli_query(con(),$editar) or die(mysqli_error(con()));
                 if($result){
 
