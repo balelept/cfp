@@ -22,7 +22,6 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY data_vali
    <div class="corpo">
      <style>
      table {
-         border-collapse: collapse;
          width: 97%;
          font-family: "verdana"
      }
@@ -32,7 +31,34 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY data_vali
          font-size:small;
      }
      </style>
-     <table align="right" width="100%">
+
+         <style>
+     #customers {
+         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+         border-collapse: collapse;
+         width: 97%;
+
+     }
+
+     #customers td, #customers th {
+         border: 0.5px solid #ddd;
+         padding: 8px;
+         font-size: 110%;
+     }
+
+     #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+     #customers tr:hover {background-color: #ddd;}
+
+     #customers th {
+         padding-top: 12px;
+         padding-bottom: 12px;
+         text-align: center;
+         background-color: #4CAF50;
+         color: white;
+     }
+     </style>
+     <table align="right" width="100%" id="customers">
      <tr>
        <th><b>Id &nbsp</b></th>
        <th><b>Nome &nbsp</b></th>

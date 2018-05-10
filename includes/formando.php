@@ -11,6 +11,7 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
       padding: 8px;
   }
   </style>
+
    <table alling="right"  width="100%" border="0">
    <tr>
    <th text-align="center"> <font size="5">Formandos</font> </th>
@@ -22,7 +23,6 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
 <div class="corpo">
   <style>
   table {
-      border-collapse: collapse;
       width: 97%;
       font-family: "verdana"
   }
@@ -32,7 +32,34 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
       font-size:small;
   }
   </style>
-  <table align="right" width="100%">
+
+      <style>
+  #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 97%;
+
+  }
+
+  #customers td, #customers th {
+      border: 0.5px solid #ddd;
+      padding: 8px;
+      font-size: 110%;
+  }
+
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+  #customers tr:hover {background-color: #ddd;}
+
+  #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+  }
+  </style>
+  <table align="right" width="100%" id="customers">
   <tr>
     <th>
       <form action="formando.php" method="post">
@@ -45,7 +72,9 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
     <th><b>Id &nbsp</b></th>
     <th><b>Nome &nbsp</b></th>
     <th><b>Cartão do Cidadão &nbsp</b></th>
-    <th colspan="3"></th>
+    <th></th>
+    <th>Editar</th>
+    <th>Apagar</th>
   </tr>
   <?php
     if (!empty($_REQUEST['term'])) {

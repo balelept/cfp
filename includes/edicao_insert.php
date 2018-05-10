@@ -170,7 +170,7 @@ for($b=0;$b<$numturma;$b++){
    $turma=$id_turma+$b+1;
   if(!empty($_POST[$num])) {
   foreach($_POST[$num] as $formando) {
-    $insert2 = "INSERT INTO turma (id_turma,id_formando,id_edicao_formacao) VALUES ('$turma','$formando','$id_edicao')";
+    $insert2 = "INSERT INTO turma (id_turma,id_formando,id_edicao_formacao,nota) VALUES ('$turma','$formando','$id_edicao','-1')";
     $result2 = mysqli_query(con(), $insert2);
   }
  }
