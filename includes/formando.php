@@ -64,7 +64,7 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
     <th>
       <form action="formando.php" method="post">
         Pesquisar: <input type="text" name="term" />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Pesquisar" />
       </form>
     </th>
   </tr>
