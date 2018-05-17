@@ -1,6 +1,6 @@
 <?php
 require('fpdf.php');
-require("conexao.php");
+require("connect.php");
 require("result.php");
 class PDF extends FPDF
 {
@@ -263,11 +263,11 @@ $pdf->SetFont('Arial','B',15);
 
 
         if($nota==-3){
-        $nota="DESISTIU";
+        $nota="Nota não atribuida";
         }else if ($nota==-2){
         $nota="Não certificado";
         }else if($nota==-1) {
-        $nota="Nota não atribuida";
+        $nota="DESISTIU";
         }else if($nota<=4.9){
         $nota=$nota." - Insuficiente";
         }else if($nota<=6.4){

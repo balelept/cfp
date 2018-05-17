@@ -69,6 +69,28 @@ $registo_formando_grupo=mysqli_query(con(),"SELECT * FROM formando_grupo WHERE i
     background-color: #0083ff;
     color: white;
 }
+
+#customers3 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers3 td, #customers3 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers3 tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers3 tr:hover {background-color: #ddd;}
+
+#customers3 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+</style>
 </style>
      <table alling="right"  width="97%" border="0">
      <tr>
@@ -174,6 +196,165 @@ $codigo=mysqli_result($registo_area,0,'codigo');
 }
 ?>
 </div>
+<div class='perfiright'>
+<?php
+$registo_emprogresso=mysqli_query(con(),"SELECT * FROM turma WHERE id_formando='$id_formando' AND nota='-3'");
+$registo_sucesso=mysqli_query(con(),"SELECT * FROM turma WHERE id_formando='$id_formando' AND nota>'4.9'");
+$registo_naosucesso=mysqli_query(con(),"SELECT * FROM turma WHERE id_formando='$id_formando' AND nota<='4.9' AND nota>='-2' ");
+?>
+<table id="customers3">
+  <tr>
+    <th bgcolor="#4CAF50" colspan="3"><p style="color:white;">Ações de Formação</p></th>
+  </tr>
+  <?php
+if(mysqli_num_rows($registo_emprogresso)){
+  ?>
+  <tr>
+    <th bgcolor="#f8fc1e" colspan="3">Em progresso
+
+    </th>
+  </tr>
+  <tr>
+  <td>
+  <b>Nome</b>
+  </td>
+  <td colspan="2">
+  <b>Data do final da edição</b>
+  </td>
+</tr>
+<?php
+for($b=0;$b<mysqli_num_rows($registo_emprogresso);$b++){
+?>
+<tr>
+
+  <?php
+  $id_edicao_formacao=mysqli_result($registo_emprogresso,$b,'id_edicao_formacao');
+  $registo_edicao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE id_edicao='$id_edicao_formacao' ");
+  $id_acao=mysqli_result($registo_edicao,0,'id_acao_formacao');
+  $registo_acao   =mysqli_query(con(),"SELECT * FROM acao_formacao WHERE id_acao_formacao='$id_acao'");
+   ?>
+
+  <td>
+      <a href="acao_formacao_perfil.php?id=<?php echo $id_acao ?>"><?php echo mysqli_result($registo_acao,0,'nome'); ?></a>
+  </td>
+  <td colspan="2">
+    <?php
+echo mysqli_result($registo_edicao,0,'data_fim');
+
+    ?>
+  </td>
+</tr>
+<?php
+
+}
+
+}
+
+if(mysqli_num_rows($registo_sucesso)){
+?>
+  <tr>
+    <th bgcolor="#4CAF50" colspan="3"><p style="color:white;">Concluídas com sucesso</p>
+
+    </th>
+  </tr>
+<tr>
+<td>
+<b>Nome</b>
+</td>
+<td>
+<b>Nota</b>
+</td>
+<td>
+<b>Certificado</b>
+</td>
+</tr>
+<?php
+for($b=0;$b<mysqli_num_rows($registo_sucesso);$b++){
+?>
+<tr>
+
+<?php
+$id_edicao_formacao=mysqli_result($registo_sucesso,$b,'id_edicao_formacao');
+$id_turma=mysqli_result($registo_sucesso,$b,'id_turma');
+$registo_edicao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE id_edicao='$id_edicao_formacao' ");
+$id_acao=mysqli_result($registo_edicao,0,'id_acao_formacao');
+$registo_acao   =mysqli_query(con(),"SELECT * FROM acao_formacao WHERE id_acao_formacao='$id_acao'");
+ ?>
+
+<td>
+    <a href="acao_formacao_perfil.php?id=<?php echo $id_acao ?>"><?php echo mysqli_result($registo_acao,0,'nome'); ?></a>
+</td>
+<td>
+  <?php
+echo mysqli_result($registo_sucesso,$b,'nota');
+
+  ?>
+</td>
+<td>
+    <a href="pdf_certificado.php?id_turma=<?php echo $id_turma ?>">  <img src="certificado.ico" height="26" width="26"> </a>
+  </td>
+</tr>
+<?php
+
+}
+
+}
+
+if(mysqli_num_rows($registo_naosucesso)){
+?>
+  <tr>
+    <th bgcolor="#ff1e1e" colspan="3"><p style="color:white;">Concluídas sem sucesso</p>
+
+    </th>
+  </tr>
+<tr>
+<td>
+<b>Nome</b>
+</td>
+<td colspan="2">
+<b>Nota</b>
+</td>
+</tr>
+<?php
+for($b=0;$b<mysqli_num_rows($registo_naosucesso);$b++){
+?>
+<tr>
+
+<?php
+$id_edicao_formacao=mysqli_result($registo_naosucesso,$b,'id_edicao_formacao');
+$registo_edicao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE id_edicao='$id_edicao_formacao' ");
+$id_acao=mysqli_result($registo_edicao,0,'id_acao_formacao');
+$registo_acao   =mysqli_query(con(),"SELECT * FROM acao_formacao WHERE id_acao_formacao='$id_acao'");
+ ?>
+
+<td>
+    <a href="acao_formacao_perfil.php?id=<?php echo $id_acao ?>"><?php echo mysqli_result($registo_acao,0,'nome'); ?></a>
+</td>
+<td colspan="2">
+  <?php
+$nota = mysqli_result($registo_naosucesso,$b,'nota');
+
+if($nota==-2){
+  echo "Não certificado";
+} else if ($nota==-1){
+  echo "Desistiu";
+} else if ($nota > 0 || $nota <= 4.9){
+
+  echo $nota."- Nota insuficiente";
+}
+
+  ?>
+</td>
+</tr>
+<?php
+
+}
+
+}
+?>
+
+
+</table>
 </div>
 </div>
 </body>
