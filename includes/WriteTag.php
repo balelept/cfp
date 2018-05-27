@@ -153,7 +153,7 @@ function Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link
     }
     else
         $this->x+=$w;
-}        
+}
 // Page header
 function Header()
 {
@@ -162,7 +162,7 @@ function Header()
     $this->SetDrawColor(68,155,10);
     $this->SetLineWidth(1);
     $this->Ln(21);
-    $this->Setx(0);  
+    $this->Setx(0);
     $this->Cell('300','',"",1);
     $this->Ln(10);
     $this->Image('background.jpg',110, 70, 100, 100);
@@ -171,14 +171,14 @@ function Header()
 // Page footer
 function Footer()
 {
-   
+
     $this->Image('logo2.png' , 80 ,170, 48 , 30,'png');
     $this->Image('logo_edu.png' ,12 ,174, 48 , 25,'png');
      $this->SetDrawColor(68,155,10);
-    $this->SetLineWidth(1);   
+    $this->SetLineWidth(1);
     $this->SetXY(0,-8);
     $this->Cell('300','0',"",'T');
-    
+
 }
 }
 // End of class ?>

@@ -72,7 +72,7 @@ $registo_edicao=mysqli_query(con(),"SELECT * FROM edicao_formacao WHERE id_acao_
 <?php for($x=0;$x<mysqli_num_rows($registo_formador);$x++){
      $id_formador=mysqli_result($registo_formador,$x,'id_formador');
      $registo_formando=mysqli_query(con(),"SELECT * FROM formando WHERE id_formando='$id_formador'");
-    ?> <a href="formando_perfil.php"> <?php echo mysqli_result($registo_formando,'0','nome'); ?> </a> <?php echo "  |  ";
+    ?> <a href="formando_perfil.php?id=<?php echo $id_formador ;?>"> <?php echo mysqli_result($registo_formando,'0','nome'); ?> </a> <?php echo "  |  ";
 }
  ?>
 </td>
