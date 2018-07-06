@@ -148,8 +148,9 @@ echo $codigo."|".$nome."<br>";  } ?></td>
        ?> <tr>
            <th bgcolor="#b0ff91"><?php
            $x=$h+1;
-           echo "Edição".$x;
-           ?></th>
+          ?>
+             <a href="edicao_perfil.php?id_edicao=<?php echo $id_edicao ;?>" style="color:white"><?php  echo "Edição".$x;?></a>
+           </th>
        </tr> <?php
        for($j=0;$j<mysqli_num_rows($registo_turma);$j++){
         ?>
@@ -157,9 +158,10 @@ echo $codigo."|".$nome."<br>";  } ?></td>
           <td bgcolor="#f7f7f7" cellspacing="2" ><?php
           $x=$j+1;
           $id_turma=mysqli_result($registo_turma,$j,'id_turma');
-          echo "Turma".$x;
-
           ?>
+
+        <a href="turma_perfil.php?id_turma=<?php echo $id_turma ;?>"> <?php echo "Turma".$x; ?></a>
+
 
         <a href="pdf_perfil_turma.php?id_turma=<?php echo $id_turma ;?>">  <img src="pauta.ico" height="26" width="26" align="right"> </a>
         <a href="pdf_presencas.php?id_turma=<?php echo $id_turma ;?>">  <img src="pauta.ico" height="26" width="26" align="right"></a>
