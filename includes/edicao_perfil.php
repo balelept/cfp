@@ -36,6 +36,30 @@ $registo_formador=mysqli_query(con(),"SELECT * FROM edicao_formador WHERE id_edi
 }
 </style>
 <style>
+#customers2 {
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+#customers2 td, #customers2 th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+#customers2 tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers2 tr:hover {background-color: #ddd;}
+
+#customers2 th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #598ff9;
+color: white;
+}
+</style>
+<style>
 .button {
   background: #33e010;
   background-image: -webkit-linear-gradient(top, #33e010, #cdcfcd);
@@ -156,11 +180,33 @@ for($j=0;$j<mysqli_num_rows($registo_turma);$j++){
       </td>
       <tr>
     </table>
+    <table border="0" width="100%" id="customers2">
+      <tr>
+      <th>Nome:
+      </th>
+      <th>PDF
+      </th>
+      <th>Nota:
+      </th>
+
+      </tr>
     <?php
     for($k=0;$k<mysqli_num_rows($registo_turma2);$k++){
-
+?>
+<tr>
+  <td>
+    <?php
+    $id_formando=mysqli_result($registo_turma2,$k,'id_formando');
+    $registo_formando=mysqli_query(con(),"SELECT * FROM formando WHERE id_formando='$id_formando'");
+    echo mysqli_result($registo_formando,'0','nome')
+     ?>
+  </td>
+  <td><?php echo "PDF"; ?></td>
+  <td><?php echo mysqli_result($registo_turma2,$k,'nota'); ?></td>
+</tr>
+<?php
     }
-    echo "asdas"; ?>
+    ?></table>
   </div>
   <?php
 }
