@@ -133,14 +133,6 @@ $registo_acao=mysqli_query(con(),"SELECT * FROM acao_formacao ORDER BY data_vali
 
        <a href="acao_formacao_insert.php?i=1" ><img src="insert.png"  ></a></p>
      </td>
-       <td>
-         <p style="font-size:120%;"><?php echo "Criar uma edição: " ?>
-       <a href="inserir_edicao1.php" ><img src="insert.png"  ></a></p>
-     </td>
-       <td>
-         <p style="font-size:120%;"><?php echo "Criar uma Turma: " ?>
-       <a href="inserir_turma1.php" ><img src="insert.png"  ></a></p>
-     </td>
        </tr>
        </table>
      </div>

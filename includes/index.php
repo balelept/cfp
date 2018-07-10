@@ -6,18 +6,18 @@
       <html>
       <head>
       <div class="cabec">
-        <table  width="100%" border="0">
-<tr>
-<th text-align="center"> <font size="5">CFP</font> </th>
-</tr>
-</table>
+
 </div>
 </head>
 <body>
       <div class="corpo">
-        <table  width="100%" border="0">
+        <table   border="0" align="center">
+          <tr><td>
+            <img src="logo2.png" width="878" height="467" align="center">
+            </td></tr>
+
 <tr>
-<th text-align="center"> <font size="3">Bem vindo ao cfp</font> </th>
+<th text-align="center"> <font size="8">Bem vindo ao Centro de Formação Do Litoral à Serra</font> </th>
 </tr>
 </table>
       </div>

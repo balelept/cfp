@@ -1,6 +1,17 @@
 <?php
 include ('funcao_menu.php');
+if (!empty($_REQUEST['term'])) {
+  $term = ($_REQUEST['term']);
+
+$registo_formando = mysqli_query(con(),"SELECT * FROM formando WHERE nome LIKE '%".$term."%'");
+} else {
 $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formando");
+}
+$pagina=$_GET['pagina'];
+$numero=($pagina-1)*3;
+$num_reg=mysqli_num_rows($registo_formando)*$pagina;
+if(mysqli_num_rows($registo_formando)>3+$numero) { $i=3 ;}
+else $i=mysqli_num_rows($registo_formando);
 ?>
 <html>
 <head>
@@ -20,6 +31,7 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
 </div>
  </head>
  <body>
+   
 <div class="corpo">
   <style>
   table {
@@ -77,59 +89,25 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
     <th>Apagar</th>
   </tr>
   <?php
-    if (!empty($_REQUEST['term'])) {
-
-    $term = ($_REQUEST['term']);
-
-    $pesquisa = mysqli_query(con(),"SELECT * FROM formando WHERE nome LIKE '%".$term."%'");
-
-     for($i=0;$i<mysqli_num_rows($pesquisa);$i++){
-    ?>
-    <tr>
-    <td>
-    <?php
-    $id =mysqli_result($pesquisa,$i,'id_formando');
-    echo $id;
-    ?>
-    </td>
-    <td>
-    <?php
-    $nome=mysqli_result($pesquisa,$i,'nome');
-    ?>
-    <a href="formando_perfil.php?id=<?php echo $id ?>"><?php echo $nome ?></a>
-    </td>
-    <td>
-    <?php
-    $cc=mysqli_result($pesquisa,$i,'cc');
-    echo $cc;
-    ?>
-    </td>
-    <td><a href="formador_insert.php?i=1&id=<?php echo $id ?>"><img src="formador.ico" width="16px" height="16px"> </td>
-     <td><a href="formando_edit.php?e=1&id=<?php echo $id ?>"><img src="edit.ico" width="16px" height="16px"> </td>
-     <td><a href="formando_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
-     </tr>
-<?php
-    }
-  }
-  else {
- for($i=0;$i<mysqli_num_rows($registo_formando);$i++){
+  for($m=$numero;$m<$i;$m++)
+   for($m=$numero;$m<$i;$m++){
   ?>
   <tr>
   <td>
   <?php
-  $id =mysqli_result($registo_formando,$i,'id_formando');
+  $id =mysqli_result($registo_formando,$m,'id_formando');
   echo $id;
   ?>
   </td>
   <td>
   <?php
-  $nome=mysqli_result($registo_formando,$i,'nome');
+  $nome=mysqli_result($registo_formando,$m,'nome');
   ?>
   <a href="formando_perfil.php?id=<?php echo $id ?>"><?php echo $nome ?></a>
   </td>
   <td>
   <?php
-  $cc=mysqli_result($registo_formando,$i,'cc');
+  $cc=mysqli_result($registo_formando,$m,'cc');
   echo $cc;
   ?>
   </td>
@@ -138,7 +116,6 @@ $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formand
   <td><a href="formando_delete.php?d=1&id=<?php echo $id ?>"><img src="delete.ico" width="16px" height="16px"> </a> </td>
   </tr>
   <?php
-}
 }
   ?>
   </table>
