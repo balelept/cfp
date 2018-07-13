@@ -1,9 +1,13 @@
 <?php
 include ('funcao_menu.php');
+$pagina=$_GET['pagina'];
 if (!empty($_REQUEST['term'])) {
   $term = ($_REQUEST['term']);
 
 $registo_formando = mysqli_query(con(),"SELECT * FROM formando WHERE nome LIKE '%".$term."%'");
+} else if(isset($_GET['pesquisa'])){
+  $term=($_REQUEST['pesquisa']);
+  $registo_formando = mysqli_query(con(),"SELECT * FROM formando WHERE nome LIKE '%".$term."%'");
 } else {
 $registo_formando=mysqli_query(con(),"SELECT * FROM formando ORDER BY id_formando");
 }
@@ -31,21 +35,29 @@ else $i=mysqli_num_rows($registo_formando);
 </div>
  </head>
  <body>
-   
-<div class="corpo">
+
   <style>
-  table {
+   #customers2 table {
       width: 97%;
       font-family: "verdana"
   }
-  tr:nth-child(even){background-color: #D1F9B3}
+  #customers2 tr:nth-child(even){background-color: #D1F9B3}
 
-  tr{
+  #customers2 tr{
       font-size:small;
   }
   </style>
 
       <style>
+      #customers table {
+         width: 97%;
+         font-family: "verdana"
+     }
+     #customers tr:nth-child(even){background-color: #D1F9B3}
+
+     #customers tr{
+         font-size:small;
+     }
   #customers {
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
       border-collapse: collapse;
@@ -71,12 +83,13 @@ else $i=mysqli_num_rows($registo_formando);
       color: white;
   }
   </style>
+  <div class="corpo">
   <table align="right" width="100%" id="customers">
   <tr>
     <th>
-      <form action="formando.php" method="post">
+      <form action="formando.php?pagina=1" method="post">
         Pesquisar: <input type="text" name="term" />
-        <input type="submit" value="Pesquisar" />
+   <input type="submit" value="Pesquisar" />
       </form>
     </th>
   </tr>
@@ -119,11 +132,34 @@ else $i=mysqli_num_rows($registo_formando);
 }
   ?>
   </table>
-  <table>
+  <table id="customers2">
   <tr>
   <td><a href="formando_insert.php?i=1"><img src="add.ico" title="Inserir Registo"></a> </td>
   </tr>
   </table>
+</div>
+<div class="fixed">
+    <table border="0" align="right" >
+    <tr><td align="center"> <b>&nbsp  Página &nbsp</b>  </td></tr>
+    <tr><td  align="center">
+   <?php if($pagina<=1){?> <img src="menos1.png"><?php
+   } else {
+     if(isset($term)){
+       ?> <a href="formando.php?pagina=<?php echo $pagina-1; ?>&pesquisa=<?php echo $term; ?>"><img src="menos1.png"></a><?php
+     } else {
+        ?> <a href="formando.php?pagina=<?php echo $pagina-1; ?>"><img src="menos1.png"></a><?php }
+
+    } ?>
+    <font size="6" color="blue"><b>&nbsp&nbsp<?php echo $pagina ?> &nbsp</b> </font>
+  <?php if($i<3+$numero ){ ?>  <img src="mais1.png"> <?php 
+  } else {
+     if(isset($term)){
+    ?> <a href="formando.php?pagina=<?php echo $pagina+1; ?>&pesquisa=<?php echo $term; ?>"><img src="mais1.png"></a> <?php
+  } else {
+    ?> <a href="formando.php?pagina=<?php echo $pagina+1; ?>&pesquisa=<?php echo $term; ?>"><img src="mais1.png"></a> <?php }
+    } ?>
+    </td></tr>
+</table>
 </div>
 </body>
 </html>
